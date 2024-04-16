@@ -321,6 +321,263 @@ export default App;
 - json
 - Hooks (useState)
 
+```javascript
+const people = [
+  { name: "John", age: 30 },
+  { name: "Alice", age: 25 },
+  { name: "Bob", age: 35 },
+];
+//JavaScript Array Objects
+```
+
+```json
+{
+  "name": "John",
+  "age": 30,
+  "city": "New York"
+}
+//Json key value pair
+```
+
+### useState
+
+#### In React, state allows us to manage and update data within a component. The useState hook is a function provided by React that allows functional components to manage state without needing to convert them into class components.
+
+- `useState` is a function that returns an array with two elements: the current state `(state)` and a function `(setState)` to update that state.
+- `initialState` is the initial value of the state.
+
+```javascript
+//Syntax of useState
+
+const [state, setState] = useState(initialState);
+```
+```javascript
+//importing useState
+
+import React, { useState } from "react";
+```
+
+### Assignments
+
+<details markdown=block>
+<summary markdown=span>1. Create a user profile with name and image using javascript array objects</summary>
+
+### `Profile.jsx`
+
+```javascript
+import React from "react";
+
+const Profile = () => {
+  const user = {
+    name: "Purna Shrestha",
+    imageUrl: "https://www.purnashrestha.com.np/assets/img/purna%20pp1.png",
+  };
+  return (
+    <>
+      <h1>{user.name}</h1>
+      <img
+        className="w-12 h-12 object-cover rounded-full"
+        src={user.imageUrl}
+        alt={"Photo of " + user.name}
+      />
+    </>
+  );
+};
+
+export default Profile;
+```
+
+### `App.jsx`
+
+```javascript
+import React from "react";
+import Profile from "./components/Profile";
+
+const App = () => {
+  return (
+    <>
+      <Profile />
+    </>
+  );
+};
+
+export default App;
+```
+
+</details>
+
+<details markdown=block>
+<summary markdown=span>2. Create a product catalog using let/const, arrow functions, javascript array objects, map</summary>
+
+### `ProductCatalog.jsx`
+
+```javascript
+import React from "react";
+
+const ProductCatalog = () => {
+  const products = [
+    { id: 1, name: "Product 1", price: 10 },
+    { id: 2, name: "Product 2", price: 20 },
+    { id: 3, name: "Product 3", price: 30 },
+  ];
+
+  return (
+    <>
+      <h2>Products</h2>
+      <ul>
+        {products.map((product) => (
+          <li key={product.id}>
+            {product.name} - ${product.price}
+          </li>
+        ))}
+      </ul>
+    </>
+  );
+};
+
+export default ProductCatalog;
+```
+
+### `App.jsx`
+
+```javascript
+import React from "react";
+import ProductCatalog from "./components/ProductCatalog";
+
+const App = () => {
+  return (
+    <>
+      <ProductCatalog />
+    </>
+  );
+};
+
+export default App;
+```
+
+</details>
+
+<details markdown=block>
+<summary markdown=span>Assignments: 3. Create a todo list using let/const, arrow functions, javascript array objects, map and useState hooks </summary>
+
+### `ToDoList.jsx`
+
+```javascript
+import React, { useState } from "react";
+
+const ToDoList = () => {
+  const [todos, setTodos] = useState([
+    { id: 1, task: "Learn React" },
+    { id: 2, task: "Build a project" },
+    { id: 3, task: "Celebrate success" },
+  ]);
+
+  const removeTodo = (id) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
+  return (
+    <div>
+      <h2>To-Do List</h2>
+      <ul>
+        {todos.map((todo) => (
+          <li key={todo.id}>
+            {todo.task}
+            <button onClick={() => removeTodo(todo.id)}>Remove</button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default ToDoList;
+```
+
+### `App.jsx`
+
+```javascript
+import React from "react";
+import ToDoList from "./components/ToDoList";
+
+const App = () => {
+  return (
+    <>
+      <ToDoList />
+    </>
+  );
+};
+
+export default App;
+```
+
+</details>
+
+<details markdown=block>
+<summary markdown=span>Assignments: 4. Create a todo list where user can add their own task using input field use let/const, arrow functions, javascript array objects, map and useState hooks </summary>
+
+### `ToDoInputList.jsx`
+
+```javascript
+import React, { useState } from 'react';
+
+const ToDoInputList = () => {
+  const [todos, setTodos] = useState([]);
+  const [inputValue, setInputValue] = useState('');
+
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
+  const handleAddTodo = () => {
+    if (inputValue.trim() !== '') {
+      setTodos([...todos, { id: todos.length + 1, text: inputValue }]);
+      setInputValue('');
+    }
+  };
+
+  const handleDeleteTodo = (id) => {
+    setTodos(todos.filter(todo => todo.id !== id));
+  };
+
+  return (
+    <div>
+      <input type="text" value={inputValue} onChange={handleInputChange} />
+      <button onClick={handleAddTodo}>Add Todo</button>
+      <ul>
+        {todos.map(todo => (
+          <li key={todo.id}>
+            {todo.text}
+            <button onClick={() => handleDeleteTodo(todo.id)}>Delete</button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default ToDoInputList;
+
+```
+
+### `App.jsx`
+
+```javascript
+import React from "react";
+import ToDoInputList from "./components/ToDoInputList";
+
+const App = () => {
+  return (
+    <>
+      <ToDoInputList />
+    </>
+  );
+};
+
+export default App;
+```
+
+</details>
 
 </details>
 </details>
