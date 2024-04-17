@@ -1,4 +1,8 @@
-## React js
+## 1 week - React js
+
+-----
+
+-
 
 <details markdown=block>
 <summary markdown=span>Day 1 : Setup & Installation</summary>
@@ -165,6 +169,8 @@ export default App;
 
 </details>
 
+---
+
 <details markdown=block>
 <summary markdown=span>Day 2 : js(es6) hands-on</summary>
 
@@ -311,6 +317,8 @@ export default App;
 
 </details>
 </details>
+
+---
 
 <details markdown=block>
 <summary markdown=span>Day 3 : Hands-on Practice</summary>
@@ -583,10 +591,111 @@ export default App;
 
 </details>
 
+---
 
 <details markdown=block>
-<summary markdown=span>Day 4: Creating the Responsive Navbar</summary>
+<summary markdown=span>Day 4: es5 vs es6 | Creating the Responsive Navbar</summary>
 
+---
+
+<details markdown=block>
+<summary markdown=span>1. String Concatenation</summary>
+  
+```javascript
+var name = "Purna";
+var age = 21;
+console.log("My name is " + name + " and I am " + age + " years old.");
+```
+
+```javascript
+const name = "Purna";
+const age = 21;
+console.log(`My name is ${name} and I am ${age} years old.`);
+```
+</details>
+
+<details markdown=block>
+<summary markdown=span>2. Function Declaration</summary>
+
+```javascript
+function add(a, b) {
+  return a + b;
+}
+var sum = add(2, 3);
+console.log(sum);
+```
+
+
+```javascript
+let add = (a, b) => a + b;
+const sum = add(2, 3);
+console.log(sum);
+```
+</details>
+
+<details markdown=block>
+<summary markdown=span>3. Template Literals</summary>
+
+```javascript
+var name = "Purna";
+console.log("My name is " + name);
+```
+
+
+```javascript
+let name = "Purna";
+console.log(`My name is ${name}`);
+```
+</details>
+
+<details markdown=block>
+<summary markdown=span>4. Spread Operator</summary>
+
+```javascript
+var arr1 = [1, 2, 3];
+var arr2 = [4, 5, 6];
+var arr3 = arr1.concat(arr2);
+console.log(arr3);
+```
+
+
+```javascript
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+const arr3 = [...arr1, ...arr2];
+console.log(arr3);
+```
+</details>
+
+<details markdown=block>
+<summary markdown=span>5. Object Destructuring</summary>
+
+```javascript
+var person = {
+  name: "Purna",
+  age: 21,
+};
+var name = person.name;
+var age = person.age;
+console.log(name, age);
+```
+
+```javascript
+const person = {
+  name: "Purna",
+  age: 21,
+};
+const { name, age } = person;
+console.log(name, age);
+```
+</details>
+
+---
+
+<details markdown=block>
+    <summary markdown=span>1. A responsive navbar</summary>
+
+    
 ### `Navbar.jsx`
 
 ```javascript
@@ -606,6 +715,7 @@ const Navbar = () => {
 
 export default Navbar;
 ```
+
 ```javascript
 import React from "react";
 
@@ -903,6 +1013,8 @@ const App = () => {
 
 export default App;
 ```
+
+</details>
 
 </details>
 
