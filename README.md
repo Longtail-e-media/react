@@ -1,4 +1,8 @@
-## React js
+## 1 week - React js
+
+-----
+
+-
 
 <details markdown=block>
 <summary markdown=span>Day 1 : Setup & Installation</summary>
@@ -165,6 +169,8 @@ export default App;
 
 </details>
 
+---
+
 <details markdown=block>
 <summary markdown=span>Day 2 : js(es6) hands-on</summary>
 
@@ -311,6 +317,8 @@ export default App;
 
 </details>
 </details>
+
+---
 
 <details markdown=block>
 <summary markdown=span>Day 3 : Hands-on Practice</summary>
@@ -580,5 +588,434 @@ export default App;
 </details>
 
 </details>
+
 </details>
+
+---
+
+<details markdown=block>
+<summary markdown=span>Day 4: es5 vs es6 | Creating the Responsive Navbar</summary>
+
+---
+
+<details markdown=block>
+<summary markdown=span>1. String Concatenation</summary>
+  
+```javascript
+var name = "Purna";
+var age = 21;
+console.log("My name is " + name + " and I am " + age + " years old.");
+```
+
+```javascript
+const name = "Purna";
+const age = 21;
+console.log(`My name is ${name} and I am ${age} years old.`);
+```
+</details>
+
+<details markdown=block>
+<summary markdown=span>2. Function Declaration</summary>
+
+```javascript
+function add(a, b) {
+  return a + b;
+}
+var sum = add(2, 3);
+console.log(sum);
+```
+
+
+```javascript
+let add = (a, b) => a + b;
+const sum = add(2, 3);
+console.log(sum);
+```
+</details>
+
+<details markdown=block>
+<summary markdown=span>3. Template Literals</summary>
+
+```javascript
+var name = "Purna";
+console.log("My name is " + name);
+```
+
+
+```javascript
+let name = "Purna";
+console.log(`My name is ${name}`);
+```
+</details>
+
+<details markdown=block>
+<summary markdown=span>4. Spread Operator</summary>
+
+```javascript
+var arr1 = [1, 2, 3];
+var arr2 = [4, 5, 6];
+var arr3 = arr1.concat(arr2);
+console.log(arr3);
+```
+
+
+```javascript
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+const arr3 = [...arr1, ...arr2];
+console.log(arr3);
+```
+</details>
+
+<details markdown=block>
+<summary markdown=span>5. Object Destructuring</summary>
+
+```javascript
+var person = {
+  name: "Purna",
+  age: 21,
+};
+var name = person.name;
+var age = person.age;
+console.log(name, age);
+```
+
+```javascript
+const person = {
+  name: "Purna",
+  age: 21,
+};
+const { name, age } = person;
+console.log(name, age);
+```
+</details>
+
+---
+
+<details markdown=block>
+    <summary markdown=span>1. A responsive navbar</summary>
+
+    
+### `Navbar.jsx`
+
+```javascript
+import React from "react";
+
+const Navbar = () => {
+  return (
+    <>
+      <nav className="flex items-center justify-center">
+        <button>Book</button>
+        <h1>Logo</h1>
+        <button>Icon</button>
+      </nav>
+    </>
+  );
+};
+
+export default Navbar;
+```
+
+```javascript
+import React from "react";
+
+const Navbar = () => {
+  const navLinks = [
+    { id: 1, title: "Home", link: "/home" },
+    { id: 2, title: "About", link: "/about" },
+    { id: 3, title: "Accommodation", link: "/accommodation" },
+    { id: 4, title: "Restaurants", link: "/restaurants" },
+    { id: 5, title: "Events", link: "/events" },
+    { id: 6, title: "Testimonials", link: "/testimonials" },
+    { id: 7, title: "Nearby", link: "/nearby" },
+    { id: 8, title: "Recreation", link: "/recreation" },
+    { id: 9, title: "Gallery", link: "/gallery" },
+    { id: 10, title: "Contact", link: "/contact" },
+  ];
+
+  return (
+    <>
+      <nav className="flex items-center justify-between px-12 py-2">
+        <button>Book</button>
+        <h1>Logo</h1>
+        <button>Icon</button>
+
+        <ul>
+          {navLinks.map((item) => (
+            <li key={item.id}>
+              <a href={item.link}>{item.title}</a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </>
+  );
+};
+
+export default Navbar;
+```
+
+```jsx
+import React from "react";
+
+const Navbar = () => {
+  const navLinks = [
+    { id: 1, title: "Home", link: "/home" },
+    { id: 2, title: "About", link: "/about" },
+    { id: 3, title: "Accommodation", link: "/accommodation" },
+    { id: 4, title: "Restaurants", link: "/restaurants" },
+    { id: 5, title: "Events", link: "/events" },
+    { id: 6, title: "Testimonials", link: "/testimonials" },
+    { id: 7, title: "Nearby", link: "/nearby" },
+    { id: 8, title: "Recreation", link: "/recreation" },
+    { id: 9, title: "Gallery", link: "/gallery" },
+    { id: 10, title: "Contact", link: "/contact" },
+  ];
+
+  return (
+    <>
+      <nav>
+        <header className="flex items-center justify-between px-12 py-2 z-50 bg-gray-800 text-white">
+          <button>Book</button>
+          <h1 className="text-2xl">Logo</h1>
+          <button>Ok</button>
+        </header>
+
+        <div
+          className="fixed right-0 w-64 h-full bg-gray-800 transition-all duration-200 ease-linear z-40"
+        >
+          <ul className="px-2 pt-2 pb-3 space-y-1">
+            {navLinks.map((item) => (
+              <li key={item.id}>
+                <a
+                  href={item.link}
+                  className="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700"
+                >
+                  {item.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </nav>
+    </>
+  );
+};
+
+export default Navbar;
+```
+
+```jsx
+import React from "react";
+import { IoMenu } from "react-icons/io5";
+import { FaWhatsapp } from "react-icons/fa";
+
+const Navbar = () => {
+  const navLinks = [
+    { id: 1, title: "Home", link: "/home" },
+    { id: 2, title: "About", link: "/about" },
+    { id: 3, title: "Accommodation", link: "/accommodation" },
+    { id: 4, title: "Restaurants", link: "/restaurants" },
+    { id: 5, title: "Events", link: "/events" },
+    { id: 6, title: "Testimonials", link: "/testimonials" },
+    { id: 7, title: "Nearby", link: "/nearby" },
+    { id: 8, title: "Recreation", link: "/recreation" },
+    { id: 9, title: "Gallery", link: "/gallery" },
+    { id: 10, title: "Contact", link: "/contact" },
+  ];
+
+  return (
+    <>
+      <nav>
+        <header className="flex items-center justify-between px-12 py-4 z-50 bg-gray-800 text-white">
+          <button>
+            <FaWhatsapp className="text-2xl"/>
+          </button>
+          <h1 className="text-2xl">Logo</h1>
+          <button>
+            <IoMenu className="text-2xl"/>
+          </button>
+        </header>
+
+        <div
+          className="fixed right-0 w-64 h-full bg-gray-800 transition-all duration-200 ease-linear z-40"
+        >
+          <ul className="px-2 pt-2 pb-3 space-y-1">
+            {navLinks.map((item) => (
+              <li key={item.id}>
+                <a
+                  href={item.link}
+                  className="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700"
+                >
+                  {item.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </nav>
+    </>
+  );
+};
+
+export default Navbar;
+```
+
+```jsx
+import React, { useState } from "react";
+import { IoMenu } from "react-icons/io5";
+import { FaWhatsapp } from "react-icons/fa";
+import { IoClose } from "react-icons/io5";
+
+const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const navLinks = [
+    { id: 1, title: "Home", link: "/home" },
+    { id: 2, title: "About", link: "/about" },
+    { id: 3, title: "Accommodation", link: "/accommodation" },
+    { id: 4, title: "Restaurants", link: "/restaurants" },
+    { id: 5, title: "Events", link: "/events" },
+    { id: 6, title: "Testimonials", link: "/testimonials" },
+    { id: 7, title: "Nearby", link: "/nearby" },
+    { id: 8, title: "Recreation", link: "/recreation" },
+    { id: 9, title: "Gallery", link: "/gallery" },
+    { id: 10, title: "Contact", link: "/contact" },
+  ];
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  return (
+    <>
+      <nav>
+        <header className="flex items-center justify-between px-12 py-4 z-50 bg-gray-800 text-white">
+          <button>
+            <FaWhatsapp className="text-2xl" />
+          </button>
+          <h1 className="text-2xl">Logo</h1>
+          <button onClick={toggleMenu}>
+            {isMenuOpen ? (
+              <IoClose className="text-2xl" />
+            ) : (
+              <IoMenu className="text-2xl" />
+            )}
+          </button>
+        </header>
+
+        <div
+          className="fixed right-0 w-64 h-full bg-gray-800 transition-all duration-200 ease-linear z-40"
+        >
+          <ul className="px-2 pt-2 pb-3 space-y-1">
+            {navLinks.map((item) => (
+              <li key={item.id}>
+                <a
+                  href={item.link}
+                  className="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700"
+                >
+                  {item.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </nav>
+    </>
+  );
+};
+
+export default Navbar;
+```
+
+```javascript
+import React, { useState } from "react";
+import { IoMenu } from "react-icons/io5";
+import { FaWhatsapp } from "react-icons/fa";
+import { IoClose } from "react-icons/io5";
+
+const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const navLinks = [
+    { id: 1, title: "Home", link: "/home" },
+    { id: 2, title: "About", link: "/about" },
+    { id: 3, title: "Accommodation", link: "/accommodation" },
+    { id: 4, title: "Restaurants", link: "/restaurants" },
+    { id: 5, title: "Events", link: "/events" },
+    { id: 6, title: "Testimonials", link: "/testimonials" },
+    { id: 7, title: "Nearby", link: "/nearby" },
+    { id: 8, title: "Recreation", link: "/recreation" },
+    { id: 9, title: "Gallery", link: "/gallery" },
+    { id: 10, title: "Contact", link: "/contact" },
+  ];
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  return (
+    <>
+      <nav>
+        <header className="flex items-center justify-between px-12 py-4 z-50 bg-gray-800 text-white">
+          <button>
+            <FaWhatsapp className="text-2xl" />
+          </button>
+          <h1 className="text-2xl">Logo</h1>
+          <button onClick={toggleMenu}>
+            {isMenuOpen ? (
+              <IoClose className="text-2xl" />
+            ) : (
+              <IoMenu className="text-2xl" />
+            )}
+          </button>
+        </header>
+
+        <div
+          className={`fixed right-0 w-64 h-full bg-gray-800 transition-all duration-200 ease-linear z-40 ${
+            isMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+        >
+          <ul className="px-2 pt-2 pb-3 space-y-1">
+            {navLinks.map((item) => (
+              <li key={item.id}>
+                <a
+                  href={item.link}
+                  className="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700"
+                >
+                  {item.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </nav>
+    </>
+  );
+};
+
+export default Navbar;
+```
+
+### `App.jsx`
+
+```javascript
+import React from "react";
+import Navbar from "./components/Navbar";
+
+const App = () => {
+  return (
+    <>
+      <Navbar />
+    </>
+  );
+};
+
+export default App;
+```
+
+</details>
+
+</details>
+
 </details>
