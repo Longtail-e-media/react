@@ -2,8 +2,6 @@
 
 -----
 
--
-
 <details markdown=block>
 <summary markdown=span>Day 1 : Setup & Installation</summary>
 
@@ -1019,3 +1017,449 @@ export default App;
 </details>
 
 </details>
+
+---
+
+<details markdown=block>
+<summary markdown=span>Day 5: Creating a slider</summary>
+
+---
+
+<details markdown=block>
+    <summary markdown=span>Slider</summary>
+
+    
+### `Slider.jsx`
+
+```javascript
+// ! Step 1 - Creating the Slider component
+import React from "react";
+
+const Slider = () => {
+  const slides = [
+    {
+      url: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1661961112951-f2bfd1f253ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2672&q=80",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1512756290469-ec264b7fbf87?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2253&q=80",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2671&q=80",
+    },
+  ];
+
+  return (
+    <div className="w-full h-screen">
+      {slides.map((slide, index) => (
+        <img
+          key={index}
+          src={slide.url}
+          alt={`Slide ${index}`}
+          className="w-full h-full bg-center bg-cover absolute top-0 left-0"
+        />
+      ))}
+    </div>
+  );
+};
+
+export default Slider;
+```
+
+### `App.jsx`
+
+```javascript
+import React from "react";
+import Slider from "./components/Slider";
+
+const App = () => {
+  return (
+    <>
+      <Slider />
+    </>
+  );
+};
+
+export default App;
+```
+
+### `Slider.jsx`
+
+```javascript
+// ! Step 2 - Adding the arrows
+import React from "react";
+import {
+  HiOutlineArrowLongLeft,
+  HiOutlineArrowLongRight,
+} from "react-icons/hi2";
+
+const Slider = () => {
+  const slides = [
+    {
+      url: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1661961112951-f2bfd1f253ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2672&q=80",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1512756290469-ec264b7fbf87?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2253&q=80",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2671&q=80",
+    },
+  ];
+
+  return (
+    <div className="w-full h-screen relative">
+      {slides.map((slide, index) => (
+        <img
+          key={index}
+          src={slide.url}
+          alt={`Slide ${index}`}
+          className="w-full h-full bg-center bg-cover absolute top-0 left-0"
+        />
+      ))}
+
+      <button className="absolute top-1/2 -translate-y-1/2 left-5 rounded-full p-2 bg-black/20 text-white cursor-pointer">
+        <HiOutlineArrowLongLeft className="text-2xl" />
+      </button>
+      <button className="absolute top-1/2 -translate-y-1/2 right-5 rounded-full p-2 bg-black/20 text-white cursor-pointer">
+        <HiOutlineArrowLongRight className="text-2xl" />
+      </button>
+    </div>
+  );
+};
+
+export default Slider;
+```
+
+### `Slider.jsx`
+
+```javascript
+// ! Step 3 - Adding the onClick event
+
+import React, { useState } from "react";
+import {
+  HiOutlineArrowLongLeft,
+  HiOutlineArrowLongRight,
+} from "react-icons/hi2";
+
+const Slider = () => {
+  const slides = [
+    {
+      url: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1661961112951-f2bfd1f253ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2672&q=80",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1512756290469-ec264b7fbf87?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2253&q=80",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2671&q=80",
+    },
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? slides.length - 1 : prevIndex - 1
+    );
+  };
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === slides.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  return (
+    <div className="w-full h-screen relative">
+      {slides.map((slide, index) => (
+        <img
+          key={index}
+          src={slide.url}
+          alt={`Slide ${index}`}
+          className="w-full h-full bg-center bg-cover absolute top-0 left-0"
+        />
+      ))}
+
+      <button
+        onClick={prevSlide}
+        className="absolute top-1/2 -translate-y-1/2 left-5 rounded-full p-2 bg-black/20 text-white cursor-pointer"
+      >
+        <HiOutlineArrowLongLeft className="text-2xl" />
+      </button>
+      <button
+        onClick={nextSlide}
+        className="absolute top-1/2 -translate-y-1/2 right-5 rounded-full p-2 bg-black/20 text-white cursor-pointer"
+      >
+        <HiOutlineArrowLongRight className="text-2xl" />
+      </button>
+    </div>
+  );
+};
+
+export default Slider;
+```
+
+### `Slider.jsx`
+
+```javascript
+// ! Step 4 - Why is the slider not working? because index test i.e. index === currentIndex ? "opacity-100" : "opacity-0" is not added
+import React, { useState } from "react";
+import {
+  HiOutlineArrowLongLeft,
+  HiOutlineArrowLongRight,
+} from "react-icons/hi2";
+
+const Slider = () => {
+  const slides = [
+    {
+      url: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1661961112951-f2bfd1f253ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2672&q=80",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1512756290469-ec264b7fbf87?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2253&q=80",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2671&q=80",
+    },
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? slides.length - 1 : prevIndex - 1
+    );
+  };
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === slides.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  return (
+    <div className="w-full h-screen relative">
+      {slides.map((slide, index) => (
+        <img
+          key={index}
+          src={slide.url}
+          alt={`Slide ${index}`}
+          className={`w-full h-full bg-center bg-cover absolute top-0 left-0 ${
+            index === currentIndex ? "opacity-100" : "opacity-0"
+          } transition-all duration-1000`}
+        />
+      ))}
+
+      <button
+        onClick={prevSlide}
+        className="absolute top-1/2 -translate-y-1/2 left-5 rounded-full p-2 bg-black/20 text-white cursor-pointer"
+      >
+        <HiOutlineArrowLongLeft className="text-2xl" />
+      </button>
+      <button
+        onClick={nextSlide}
+        className="absolute top-1/2 -translate-y-1/2 right-5 rounded-full p-2 bg-black/20 text-white cursor-pointer"
+      >
+        <HiOutlineArrowLongRight className="text-2xl" />
+      </button>
+    </div>
+  );
+};
+
+export default Slider;
+```
+
+### `Slider.jsx`
+
+```javascript
+// ! Step 5: Adding the const duration and group hover
+import React, { useState } from "react";
+import {
+  HiOutlineArrowLongLeft,
+  HiOutlineArrowLongRight,
+} from "react-icons/hi2";
+
+const Slider = () => {
+  const slides = [
+    {
+      url: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1661961112951-f2bfd1f253ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2672&q=80",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1512756290469-ec264b7fbf87?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2253&q=80",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2671&q=80",
+    },
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? slides.length - 1 : prevIndex - 1
+    );
+  };
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === slides.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const duration = 1000;
+
+  return (
+    <div className="w-full h-screen relative group">
+      {slides.map((slide, index) => (
+        <img
+          key={index}
+          src={slide.url}
+          alt={`Slide ${index}`}
+          className={`w-full h-full bg-center bg-cover absolute top-0 left-0 ${
+            index === currentIndex ? "opacity-100" : "opacity-0"
+          } transition-all duration-${duration}`}
+        />
+      ))}
+
+      <button
+        onClick={prevSlide}
+        className={`absolute top-1/2 -translate-y-1/2 left-5 rounded-full p-2 bg-black/20 text-white cursor-pointer group-hover:scale-100 scale-0 transition-scale duration-${duration}`}
+      >
+        <HiOutlineArrowLongLeft className="text-2xl" />
+      </button>
+      <button
+        onClick={nextSlide}
+        className={`absolute top-1/2 -translate-y-1/2 right-5 rounded-full p-2 bg-black/20 text-white cursor-pointer group-hover:scale-100 scale-0 transition-scale duration-${duration}`}
+      >
+        <HiOutlineArrowLongRight className="text-2xl" />
+      </button>
+    </div>
+  );
+};
+
+export default Slider;
+```
+
+### `Slider.jsx`
+
+```javascript
+// ! Step 6: Slider images making them reusable by passing the imageUrl as props
+
+import React, { useState } from "react";
+import {
+  HiOutlineArrowLongLeft,
+  HiOutlineArrowLongRight,
+} from "react-icons/hi2";
+
+const Slider = ({ slides }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? slides.length - 1 : prevIndex - 1
+    );
+  };
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === slides.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const duration = 1000;
+
+  return (
+    <div className="w-full h-screen relative group">
+      {slides.map((slide, index) => (
+        <img
+          key={index}
+          src={slide.url}
+          alt={`Slide ${index}`}
+          className={`w-full h-full bg-center bg-cover absolute top-0 left-0 ${
+            index === currentIndex ? "opacity-100" : "opacity-0"
+          } transition-all duration-${duration}`}
+        />
+      ))}
+
+      <button
+        onClick={prevSlide}
+        className={`absolute top-1/2 -translate-y-1/2 left-5 rounded-full p-2 bg-black/20 text-white cursor-pointer group-hover:scale-100 scale-0 transition-scale duration-${duration}`}
+      >
+        <HiOutlineArrowLongLeft className="text-2xl" />
+      </button>
+      <button
+        onClick={nextSlide}
+        className={`absolute top-1/2 -translate-y-1/2 right-5 rounded-full p-2 bg-black/20 text-white cursor-pointer group-hover:scale-100 scale-0 transition-scale duration-${duration}`}
+      >
+        <HiOutlineArrowLongRight className="text-2xl" />
+      </button>
+    </div>
+  );
+};
+
+export default Slider;
+```
+
+### `App.jsx`
+
+```javascript
+import React from "react";
+import Slider from "./components/Slider";
+
+const App = () => {
+  const slides = [
+    {
+      url: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1661961112951-f2bfd1f253ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2672&q=80",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1512756290469-ec264b7fbf87?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2253&q=80",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2671&q=80",
+    },
+  ];
+
+  return (
+    <>
+      <Slider slides={slides} />
+    </>
+  );
+};
+
+export default App;
+```
+</details>
+
