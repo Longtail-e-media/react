@@ -1185,6 +1185,23 @@ const Slider = () => {
     );
   };
 
+// ! Simplified explannation
+// const prevSlide = () => {
+//   if (currentIndex === 0) {
+//     setCurrentIndex(slides.length - 1);
+//   } else {
+//     setCurrentIndex(currentIndex - 1);
+//   }
+// };
+
+// const nextSlide = () => {
+//   if (currentIndex === slides.length - 1) {
+//     setCurrentIndex(0);
+//   } else {
+//     setCurrentIndex(currentIndex + 1);
+//   }
+// };
+
   return (
     <div className="w-full h-screen relative">
       {slides.map((slide, index) => (
