@@ -1026,7 +1026,7 @@ export default App;
 ---
 
 <details markdown=block>
-    <summary markdown=span>Slider</summary>
+    <summary markdown=span>1. Slider</summary>
 
     
 ### `Slider.jsx`
@@ -1472,6 +1472,303 @@ const App = () => {
   return (
     <>
       <Slider slides={slides} />
+    </>
+  );
+};
+
+export default App;
+```
+</details>
+
+<details markdown=block>
+    <summary markdown=span>Assignments: 2 Create a facilities section: take inspiration from https://hotelichchha.com/project/ & https://mayurstay.com/hotelhimalaya/</summary>
+
+    
+### `Facilities.jsx` without destructuring
+
+```javascript
+import React from "react";
+
+const Facilities = () => {
+  const hotelFacilities = [
+    {
+      id: 1,
+      title: "Rooms & Suites",
+      description:
+        "Unwind in our elegantly decorated rooms that are equipped with all the modern day amenities.",
+      icon: "https://mayurstay.com/hotelhimalaya/images/subpackage/9Lgh2-1.jpg",
+      router: "/rooms",
+    },
+    {
+      id: 2,
+      title: "Restro & Bar",
+      description:
+        "Perfect place to indulge in the finest wines and signature cocktails with friends and family.",
+      icon: "https://mayurstay.com/hotelhimalaya/images/mservices/mBk0x-1.jpg",
+      router: "/restaurants",
+    },
+    {
+      id: 3,
+      title: "Swimming Pool",
+      description:
+        "Have a wonderful time in our refreshing pool with your family and friends.",
+      icon: "https://mayurstay.com/hotelhimalaya/images/mservices/w7fbd-2.jpg",
+      router: "/pool",
+    },
+  ];
+
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 mt-28">
+      {hotelFacilities.map((facility) => (
+        <div key={facility.id} className="relative overflow-hidden group">
+          <img
+            src={facility.icon}
+            alt={facility.title}
+            className="w-full h-screen shadow-md transition duration-700 ease-in-out transform group-hover:scale-150 object-cover"
+          />
+          <div className="absolute inset-0 overlay bg-gradient-to-b from-[rgba(0,0,0,0.2)] to-[rgba(0,0,0,0.4)] w-full h-full"></div>
+          <div className="group absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-b from-[rgba(0,0,0,0)] to-[rgba(0,0,0,0.6)] bg-opacity-75 text-white text-center transition-all duration-700 ease-in-out transform translate-y-1/2 group-hover:translate-y-0">
+            <div className="p-4">
+              <h3 className="text-3xl font-medium mb-24 group-hover:mb-0 transition-all duration-300">
+                {facility.title}
+              </h3>
+              <p className="text-ivory my-4">{facility.description}</p>
+              <a
+                href={facility.router}
+                className="text-ivory bg-transparent border border-solid border-white px-4 py-2 mt-2 hover:bg-white hover:text-black transition duration-300 ease-in-out"
+              >
+                View More
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default Facilities;
+```
+
+
+### `Facilities.jsx` with destructuring
+
+```javascript
+import React from "react";
+
+const Facilities = () => {
+  const hotelFacilities = [
+    {
+      id: 1,
+      title: "Rooms & Suites",
+      description:
+        "Unwind in our elegantly decorated rooms that are equipped with all the modern day amenities.",
+      icon: "https://mayurstay.com/hotelhimalaya/images/subpackage/9Lgh2-1.jpg",
+      router: "/rooms",
+    },
+    {
+      id: 2,
+      title: "Restro & Bar",
+      description:
+        "Perfect place to indulge in the finest wines and signature cocktails with friends and family.",
+      icon: "https://mayurstay.com/hotelhimalaya/images/mservices/mBk0x-1.jpg",
+      router: "/restaurants",
+    },
+    {
+      id: 3,
+      title: "Swimming Pool",
+      description:
+        "Have a wonderful time in our refreshing pool with your family and friends.",
+      icon: "https://mayurstay.com/hotelhimalaya/images/mservices/w7fbd-2.jpg",
+      router: "/pool",
+    },
+  ];
+
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 mt-28">
+      {hotelFacilities.map(({ id, title, description, icon, router }) => (
+        <div key={id} className="relative overflow-hidden group">
+          <img
+            src={icon}
+            alt={title}
+            className="w-full h-screen shadow-md transition duration-700 ease-in-out transform group-hover:scale-150 object-cover"
+          />
+          <div className="absolute inset-0 overlay bg-gradient-to-b from-[rgba(0,0,0,0.2)] to-[rgba(0,0,0,0.4)] w-full h-full"></div>
+          <div className="group absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-b from-[rgba(0,0,0,0)] to-[rgba(0,0,0,0.6)] bg-opacity-75 text-white text-center transition-all duration-700 ease-in-out transform translate-y-1/2 group-hover:translate-y-0">
+            <div className="p-4">
+              <h3 className="text-3xl font-medium mb-24 group-hover:mb-0 transition-all duration-300">
+                {title}
+              </h3>
+              <p className="text-ivory my-4">{description}</p>
+              <a
+                href={router}
+                className="text-ivory bg-transparent border border-solid border-white px-4 py-2 mt-2 hover:bg-white hover:text-black transition duration-300 ease-in-out"
+              >
+                View More
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default Facilities;
+```
+
+
+</details>
+</details>
+
+---
+
+<details markdown=block>
+<summary markdown=span>Day 6: Making a slider reusable</summary>
+
+---
+
+<details markdown=block>
+    <summary markdown=span>1. Passing Slider images from another component</summary>
+
+    
+### `Slider.jsx`
+
+```javascript
+
+import React, { useState } from "react";
+import { HiOutlineArrowLongLeft, HiOutlineArrowLongRight } from "react-icons/hi2";
+
+const Slider = ({ slides }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? slides.length - 1 : prevIndex - 1
+    );
+  };
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === slides.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const duration = 1000;
+
+  return (
+    <div className="w-full h-screen relative group">
+      {slides.map((slide, index) => (
+        <img
+          key={index}
+          src={slide.url}
+          alt={`Slide ${index}`}
+          className={`w-full h-full object-cover absolute top-0 left-0 ${
+            index === currentIndex ? "opacity-100" : "opacity-0"
+          } transition-all duration-${duration}`}
+        />
+      ))}
+
+      <button
+        onClick={prevSlide}
+        className={`absolute top-1/2 -translate-y-1/2 left-5 rounded-full p-2 bg-black/20 text-white cursor-pointer group-hover:scale-100 scale-0 transition-all duration-${duration}`}
+      >
+        <HiOutlineArrowLongLeft className="text-2xl" />
+      </button>
+      <button
+        onClick={nextSlide}
+        className={`absolute top-1/2 -translate-y-1/2 right-5 rounded-full p-2 bg-black/20 text-white cursor-pointer group-hover:scale-100 scale-0 transition-all duration-${duration}`}
+      >
+        <HiOutlineArrowLongRight className="text-2xl" />
+      </button>
+    </div>
+  );
+};
+
+export default Slider;
+```
+
+
+### `App.jsx`
+
+```javascript
+import React from "react";
+import Navbar from "./components/Navbar";
+import Slider from "./components/Slider";
+import Facilities from "./components/Facilities";
+
+const App = () => {
+  const slides = [
+    {
+      url: "https://img.freepik.com/free-photo/nature-landscape-with-black-sand-beach_23-2151380344.jpg?t=st=1713492283~exp=1713495883~hmac=7746bf20b479e6aff84d89ecb99e6c680748f7855cd4aeb42ff07c44517c0919&w=1380",
+    },
+    {
+      url: "https://img.freepik.com/free-photo/beautiful-mountains-landscape_23-2151151063.jpg?t=st=1713491654~exp=1713495254~hmac=f4926cd25b8d873d307d5b8d5a37e7bd2e967a3d215df74e5426e182335e6a93&w=1380",
+    },
+    {
+      url: "https://img.freepik.com/free-photo/lonely-boats-calm-lake-with-misty-mountain-background_23-2148153617.jpg?t=st=1713493292~exp=1713496892~hmac=2adf5dacddacdba293112e45dcd7bf2b62872ede379de25744882d072aac0d01&w=1060",
+    },
+    {
+      url: "https://img.freepik.com/free-photo/nature-tranquil-beauty-reflected-calm-water-generative-ai_188544-12798.jpg?w=1380&t=st=1713493187~exp=1713493787~hmac=b098e55d3032f6ba47863bcd99ccfe8dd4d810a369f765bb4fa4592926566a6f",
+    },
+  ];
+
+
+  return (
+    <>
+      <Navbar />
+      <Slider slides={slides} />
+      <Facilities />
+    </>
+  );
+};
+
+export default App;
+```
+</details>
+
+<details markdown=block>
+    <summary markdown=span>2.  Making slider reusable</summary>
+  
+### `App.jsx`
+
+```javascript
+import React from "react";
+import Navbar from "./components/Navbar";
+import Slider from "./components/Slider";
+import Facilities from "./components/Facilities";
+
+const App = () => {
+  const slides = [
+    {
+      url: "https://img.freepik.com/free-photo/nature-landscape-with-black-sand-beach_23-2151380344.jpg?t=st=1713492283~exp=1713495883~hmac=7746bf20b479e6aff84d89ecb99e6c680748f7855cd4aeb42ff07c44517c0919&w=1380",
+    },
+    {
+      url: "https://img.freepik.com/free-photo/beautiful-mountains-landscape_23-2151151063.jpg?t=st=1713491654~exp=1713495254~hmac=f4926cd25b8d873d307d5b8d5a37e7bd2e967a3d215df74e5426e182335e6a93&w=1380",
+    },
+    {
+      url: "https://img.freepik.com/free-photo/lonely-boats-calm-lake-with-misty-mountain-background_23-2148153617.jpg?t=st=1713493292~exp=1713496892~hmac=2adf5dacddacdba293112e45dcd7bf2b62872ede379de25744882d072aac0d01&w=1060",
+    },
+    {
+      url: "https://img.freepik.com/free-photo/nature-tranquil-beauty-reflected-calm-water-generative-ai_188544-12798.jpg?w=1380&t=st=1713493187~exp=1713493787~hmac=b098e55d3032f6ba47863bcd99ccfe8dd4d810a369f765bb4fa4592926566a6f",
+    },
+  ];
+
+  const hallImages = [
+    {
+      url: "https://www.ambientha.com/wp-content/uploads/2020/11/idee-carta-da-parati-soggiorno-broken-ocean-ambientha-1536x1023.jpg"
+    },
+    {
+      url: "https://www.giffywalls.com/blog/wp-content/uploads/2021/12/new-aqua-onyx-stone-texture-marble-wallpaper-mural.jpg"
+    }
+  ];
+
+  return (
+    <>
+      <Navbar />
+      <Slider slides={slides} />
+      <Facilities />
+      <Slider slides={hallImages} />
     </>
   );
 };
