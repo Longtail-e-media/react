@@ -1624,13 +1624,99 @@ export default Facilities;
 ---
 
 <details markdown=block>
-<summary markdown=span>Day 6: Making a slider reusable</summary>
+<summary markdown=span>Day 6: Making a slider reusable + Learning to import a font and color declaration</summary>
+
+---
+
+<details markdown=block>
+    <summary markdown=span>1. TailwindCSS custom prebuilt fonts</summary>
+
+```css
+className="font-sans"
+className="font-mono"
+className="font-serif"
+```
+
+</details>
+
+<details markdown=block>
+    <summary markdown=span>2. TailwindCSS custom fonts</summary>
+
+- go to https://fonts.google.com/
+- get the embedded import css
+- paste that embedded import on the `index.css`
+- then go to `tailwind.config.js` give your custom fontname on the extend{}
+
+### `index.css`
+
+```css
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Sedan:ital@0;1&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  body {
+    @apply font-notoSerif;
+  }
+}
+```
+
+### `tailwind.config.js`
+
+```css
+/** @type {import('tailwindcss').Config} \*/
+export default {
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  theme: {
+    extend: {
+      fontFamily: {
+        notoSerif: ['"Noto Serif"', "serif"],
+      },
+    },
+  },
+  plugins: [],
+};
+```
+
+</details>
+
+<details markdown=block>
+    <summary markdown=span>3. Custom color declaration</summary>
+
+### `tailwind.config.js`
+
+```js
+/** @type {import('tailwindcss').Config} \*/
+export default {
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  theme: {
+    extend: {
+      fontFamily: {
+        notoSerif: ['"Noto Serif"', "serif"],
+      },
+       colors: {
+        "custom-700": "#070a0f",
+        "custom-300": "#1f2937",
+        "custom-white": "#f9f9f9",
+      },
+    },
+  },
+  plugins: [],
+};
+```
+
+```css Using the font
+className="text-custom-white bg-custom-700"
+```
+
+</details>
 
 ---
 
 <details markdown=block>
     <summary markdown=span>1. Passing Slider images from another component</summary>
-
     
 ### `Slider.jsx`
 
