@@ -1861,5 +1861,225 @@ const App = () => {
 
 export default App;
 ```
+
+
 </details>
 
+### `Assignments`: Pass the `classname` as a props similarly like the slides.
+
+</details>
+
+---
+
+<details markdown=block>
+<summary markdown=span>Day 7: | Hw Classname props discussion | Q&A | Filter Button Static => dynamic |</summary>
+
+---
+
+<details markdown=block>
+    <summary markdown=span>1. HomeWork className as a props </summary>
+
+
+</details>
+<details markdown=block>
+    <summary markdown=span>2. Q & A | Bug Fix </summary>
+
+
+</details>
+<details markdown=block>
+    <summary markdown=span>3. Creating a Filter Button | Static => Dynamic |  </summary>
+
+### `FilterButton.jsx`: Creating a UI and a component
+
+```javascript
+import React from "react";
+
+const FilterButton = () => {
+  return (
+    <>
+      <div className="flex space-x-4">
+        <button className="px-4 py-2 border border-gray-300 rounded">1</button>
+        <button className="px-4 py-2 border border-gray-300 rounded">2</button>
+        <button className="px-4 py-2 border border-gray-300 rounded">3</button>
+        <button className="px-4 py-2 border border-gray-300 rounded">4</button>
+
+        <div className="p-4 bg-gray-100 w-full">Section for Filter 1</div>
+        <div className="p-4 bg-gray-100 w-full">Section for Filter 2</div>
+        <div className="p-4 bg-gray-100 w-full">Section for Filter 3</div>
+        <div className="p-4 bg-gray-100 w-full">Section for Filter 4</div>
+      </div>
+    </>
+  );
+};
+
+export default FilterButton;
+```
+
+### `FilterButton.jsx`: Question: Why is the filter button not being active? How to make a filter active ?.. Js VS React
+
+#### CW: Research how to make a filter button active in vanilla js and css
+
+```javascript
+import React, { useState } from "react";
+
+const FilterButton = () => {
+  const [activeFilter, setActiveFilter] = useState(false);
+
+  return (
+    <>
+      <div className="flex space-x-4">
+        <button
+          className={`px-4 py-2 border border-gray-300 rounded ${
+            activeFilter === "filter1" ? "bg-blue-500 text-white" : ""
+          }`}
+        >
+          1
+        </button>
+        <button className="px-4 py-2 border border-gray-300 rounded">2</button>
+        <button className="px-4 py-2 border border-gray-300 rounded">3</button>
+        <button className="px-4 py-2 border border-gray-300 rounded">4</button>
+
+        <div className="p-4 bg-gray-100 w-full">Section for Filter 1</div>
+        <div className="p-4 bg-gray-100 w-full">Section for Filter 2</div>
+        <div className="p-4 bg-gray-100 w-full">Section for Filter 3</div>
+        <div className="p-4 bg-gray-100 w-full">Section for Filter 4</div>
+      </div>
+    </>
+  );
+};
+
+export default FilterButton;
+```
+
+### `FilterButton.jsx`: Making the filter button active 
+
+```javascript
+import React, { useState } from "react";
+
+const FilterButton = () => {
+  const [activeFilter, setActiveFilter] = useState("filter1");
+
+  const handleFilterClick = (filter) => {
+    setActiveFilter(filter);
+  };
+
+  return (
+    <>
+      <div className="flex space-x-4">
+        <button
+          className={`px-4 py-2 border border-gray-300 rounded ${
+            activeFilter === "filter1" ? "bg-blue-500 text-white" : ""
+          }`}
+          onClick={() => handleFilterClick("filter1")}
+        >
+          1
+        </button>
+        <button
+          className={`px-4 py-2 border border-gray-300 rounded ${
+            activeFilter === "filter2" ? "bg-blue-500 text-white" : ""
+          }`}
+          onClick={() => handleFilterClick("filter2")}
+        >
+          2
+        </button>
+        <button
+          className={`px-4 py-2 border border-gray-300 rounded ${
+            activeFilter === "filter3" ? "bg-blue-500 text-white" : ""
+          }`}
+          onClick={() => handleFilterClick("filter3")}
+        >
+          3
+        </button>
+        <button
+          className={`px-4 py-2 border border-gray-300 rounded ${
+            activeFilter === "filter4" ? "bg-blue-500 text-white" : ""
+          }`}
+          onClick={() => handleFilterClick("filter4")}
+        >
+          4
+        </button>
+
+        <div className="p-4 bg-gray-100 w-full">Section for Filter 1</div>
+        <div className="p-4 bg-gray-100 w-full">Section for Filter 2</div>
+        <div className="p-4 bg-gray-100 w-full">Section for Filter 3</div>
+        <div className="p-4 bg-gray-100 w-full">Section for Filter 4</div>
+      </div>
+    </>
+  );
+};
+
+export default FilterButton;
+```
+
+### `FilterButton.jsx`: Making the filter button active and functional
+
+```javascript
+import React, { useState } from "react";
+
+const FilterButton = () => {
+  const [activeFilter, setActiveFilter] = useState("filter1");
+
+  const handleFilterClick = (filter) => {
+    setActiveFilter(filter);
+  };
+
+  return (
+    <>
+      <div className="flex space-x-4">
+        <button
+          className={`px-4 py-2 border border-gray-300 rounded ${
+            activeFilter === "filter1" ? "bg-blue-500 text-white" : ""
+          }`}
+          onClick={() => handleFilterClick("filter1")}
+        >
+          1
+        </button>
+        <button
+          className={`px-4 py-2 border border-gray-300 rounded ${
+            activeFilter === "filter2" ? "bg-blue-500 text-white" : ""
+          }`}
+          onClick={() => handleFilterClick("filter2")}
+        >
+          2
+        </button>
+        <button
+          className={`px-4 py-2 border border-gray-300 rounded ${
+            activeFilter === "filter3" ? "bg-blue-500 text-white" : ""
+          }`}
+          onClick={() => handleFilterClick("filter3")}
+        >
+          3
+        </button>
+        <button
+          className={`px-4 py-2 border border-gray-300 rounded ${
+            activeFilter === "filter4" ? "bg-blue-500 text-white" : ""
+          }`}
+          onClick={() => handleFilterClick("filter4")}
+        >
+          4
+        </button>
+
+        {activeFilter === "filter1" && (
+          <div className="p-4 bg-gray-100 w-full">Section for Filter 1</div>
+        )}
+        {activeFilter === "filter2" && (
+          <div className="p-4 bg-gray-100 w-full">Section for Filter 2</div>
+        )}
+        {activeFilter === "filter3" && (
+          <div className="p-4 bg-gray-100 w-full">Section for Filter 3</div>
+        )}
+        {activeFilter === "filter4" && (
+          <div className="p-4 bg-gray-100 w-full">Section for Filter 4</div>
+        )}
+      </div>
+    </>
+  );
+};
+
+export default FilterButton;
+
+```
+
+### `Assignment`: `Homework` style it using tailwindcss : (And in the place of section either add a slider || image + content || gallery/)
+</details>
+</details>
