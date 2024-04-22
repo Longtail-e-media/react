@@ -2083,3 +2083,106 @@ export default FilterButton;
 ### `Assignment`: `Homework` style it using tailwindcss : (And in the place of section either add a slider || image + content || gallery/)
 </details>
 </details>
+
+---
+
+<details markdown=block>
+    <summary markdown=span>Day. 8 Routing </summary>
+
+---
+  
+<details markdown=block>
+    <summary markdown=span>Classwork </summary>
+  
+### Classwork: Create a footer component
+</details>
+
+<details markdown=block>
+    <summary markdown=span>Routing </summary>
+
+### `main.jsx`
+
+```javascript
+import React from "react";
+import ReactDOM from "react-dom/client";
+import Home from "./routes/Home";
+import "./index.css";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+
+const router = createBrowserRouter([
+  { path: "/", element: <Home /> }
+]);
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>
+);
+```
+
+### `Note`: using react router like this on the main.jsx creates a messy code on main.jsx so we will create a separate file with the name `router.jsx`
+
+### File Structure
+
+```bash
+    .
+    ├── node_modules
+    ├── public
+    ├── src
+    │   ├── assets
+    │   ├── components
+    │     ├── Gallery.jsx
+    │   ├── pages
+    │     ├── Accommodation.jsx  
+    │   ├── routes
+    │     ├── Home.jsx
+    │   ├── App.css
+    │   ├── App.jsx
+    │   ├── index.css
+    │   └── main.jsx
+    │   └── router.jsx
+    ├── .eslintrc.cjs
+    ├── .gitignore
+    ├── index.html
+    ├── package-lock.json
+    ├── package.json
+    ├── postcss.config.js
+    ├── README.md
+    ├── tailwind.config.js
+    └── vite.config.js
+```
+
+
+### `main.jsx` 
+
+```javascript
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./router";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>
+);
+```
+
+### `router.jsx`
+
+```javascript
+import {  createBrowserRouter } from "react-router-dom";
+import Home from "./routes/Home";
+import Accommodation from "./pages/Accommodation";
+import Gallery from "./components/Gallery";
+
+
+export const router = createBrowserRouter([
+  { path: "/", element: <Home /> },
+  { path: "/accommodation", element: <Accommodation /> },
+  { path: "/gallery", element: <Gallery /> },
+]);
+```
+</details>
+</details>
