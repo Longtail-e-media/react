@@ -2348,3 +2348,7 @@ export const router = createBrowserRouter([
 ```
 </details>
 </details>
+
+
+## `Assignment`: Create a complete react multipage website using all we studied.
+## `Deadline`: 
