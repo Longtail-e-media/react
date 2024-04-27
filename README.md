@@ -1867,6 +1867,168 @@ export default App;
 
 ### `Assignments`: Pass the `classname` as a props similarly like the slides.
 
+<details markdown=block>
+    <summary markdown=span>Codes: </summary>
+
+### `Slider.jsx` 
+
+```jsx
+
+import React, { useState } from "react";
+import {
+  HiOutlineArrowLongLeft,
+  HiOutlineArrowLongRight,
+} from "react-icons/hi2";
+
+const Slider = ({
+  slides,
+  containerClassName,
+  imgClassName,
+  buttonClassName,
+  trueClassName,
+  falseClassName,
+}) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? slides.length - 1 : prevIndex - 1
+    );
+  };
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === slides.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  return (
+    <div className={`${containerClassName} relative group`}>
+      {slides.map((slide, index) => (
+        <img
+          key={index}
+          src={slide.url}
+          alt={`Slide ${index}`}
+          className={`${imgClassName} ${
+            index === currentIndex ? trueClassName : falseClassName
+          }`}
+        />
+      ))}
+      <button onClick={prevSlide} className={`left-5 ${buttonClassName}`}>
+        <HiOutlineArrowLongLeft className="text-2xl" />
+      </button>
+      <button onClick={nextSlide} className={`right-5 ${buttonClassName}`}>
+        <HiOutlineArrowLongRight className="text-2xl rotate-" />
+      </button>
+    </div>
+  );
+};
+
+export default Slider;
+```
+
+### `App.jsx` 
+
+```jsx
+
+import React from "react";
+import Slider from "./components/Slider";
+
+const App = () => {
+  const slides = [
+    {
+      url: "https://mayurstay.com/hotelhimalaya/images/slideshow/m9TAT-1.jpg",
+    },
+    {
+      url: "https://mayurstay.com/hotelhimalaya/images/slideshow/mxXP9-2.jpg",
+    },
+    {
+      url: "https://mayurstay.com/hotelhimalaya/images/slideshow/GDLNu-03.jpg",
+    },
+    {
+      url: "https://mayurstay.com/hotelhimalaya/images/package/banner/GJ05P-banner.jpeg",
+    },
+    {
+      url: "https://mayurstay.com/hotelhimalaya/images/package/galleryimages/km7M2-room3.jpg",
+    },
+  ];
+
+  const hallImages = [
+    {
+      url: "https://mayurstay.com/hotelhimalaya/images/package/galleryimages/KN2OQ-event01.jpg",
+    },
+    {
+      url: "https://mayurstay.com/hotelhimalaya/images/package/galleryimages/OB5Aq-skyline2.jpg",
+    },
+    {
+      url: "https://mayurstay.com/hotelhimalaya/images/package/galleryimages/C0Ne4-rato.jpg",
+    },
+    {
+      url: "https://mayurstay.com/hotelhimalaya/images/package/galleryimages/R3YEn-regent4.jpg",
+    },
+    {
+      url: "https://mayurstay.com/hotelhimalaya/images/package/galleryimages/SFYSu-pdr4.jpg",
+    },
+    {
+      url: "https://mayurstay.com/hotelhimalaya/images/package/galleryimages/VyxO5-green4.jpg",
+    },
+  ];
+
+  const roomImages = [
+    {
+      url: "https://mayurstay.com/hotelhimalaya/images/package/galleryimages/km7M2-room3.jpg",
+    },
+    {
+      url: "https://mayurstay.com/hotelhimalaya/images/package/banner/8GSHn-room-banner.jpg",
+    },
+    {
+      url: "https://mayurstay.com/hotelhimalaya/images/package/galleryimages/Q3Wun-room2.jpg",
+    },
+    {
+      url: "https://mayurstay.com/hotelhimalaya/images/package/galleryimages/AhKbK-room06.jpg",
+    },
+    {
+      url: "https://mayurstay.com/hotelhimalaya/images/package/galleryimages/ykMee-c.jpeg",
+    },
+  ];
+
+  return (
+    <>
+      <Slider
+        slides={slides}
+        containerClassName="w-full h-screen"
+        buttonClassName="hero-slider-button"
+        imgClassName="w-full h-full object-cover absolute inset-0 transition-all duration-[2s]"
+        trueClassName="opacity-100"
+        falseClassName="opacity-0"
+      />
+      <Slider
+        slides={hallImages}
+        containerClassName="w-3/4 h-[80vh] mx-auto"
+        buttonClassName="room-slider-button"
+        imgClassName="w-full h-full object-cover absolute inset-0 transition-all duration-[1s]"
+        trueClassName="opacity-100 scale-100"
+        falseClassName="opacity-0 rotate-3 scale-80"
+      />
+      <Slider
+        slides={roomImages}
+        containerClassName="w-1/3 h-96 overflow-hidden relative mx-auto mt-10 group"
+        buttonClassName="room-slider-button"
+        imgClassName="w-full h-full object-cover absolute inset-0 transition-all duration-[1s]"
+        trueClassName="opacity-100 scale-100 translate-y-0"
+        falseClassName="opacity-0 scale-90 -translate-y-4 -z-10"
+      />
+    </>
+  );
+};
+
+export default App;
+```
+
+### `NOTE`: The logical codes and the code pattern may vary and could be more optimal solution than this. So, if you found the better way to pass the className as a props feel free to share it out.
+
+
+</details>
 </details>
 
 ---
