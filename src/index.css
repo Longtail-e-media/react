@@ -85,8 +85,7 @@
     navbar 
 *******************/
 .navbar-show {
-  height: 15.75rem !important;
-  opacity: 1 !important;
+  @apply opacity-100 h-64;
 }
 
 /******************
@@ -105,5 +104,5 @@
 }
 
 .filter-box {
-  display: none;
+  @apply hidden;
 }
