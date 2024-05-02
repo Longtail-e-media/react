@@ -2,6 +2,9 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,jsx}"],
   theme: {
+    fontFamily: {
+      fontPopins: ["Poppins, sans-serif"],
+    },
     extend: {
       colors: {
         defaultcolor: "#FFA920",

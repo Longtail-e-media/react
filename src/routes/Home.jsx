@@ -4,6 +4,7 @@ import Banner from "../components/Banner";
 import Title from "../components/Title";
 import Explore from "../components/Explore";
 import Discover from "../components/Discover";
+import Choose from "../components/Choose";
 import Footer from "../components/Footer";
 import Search from "../components/Search";
 
@@ -25,6 +26,7 @@ const Home = () => {
       />
       <Discover />
       <Search />
+      <Choose />
       <Footer />
     </div>
   );
