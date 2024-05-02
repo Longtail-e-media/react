@@ -104,34 +104,6 @@ const Service = () => {
           </div>
           <div class="grid lg:grid-cols-4 gap-10 mt-16">
             <ClientBlock clients={clients} />
-            <div>
-              <img
-                src="assets/images/clients/clients-1.png"
-                class="opacity-70 hover:opacity-100 transition-all mx-auto block"
-                alt="client-logo"
-              />
-            </div>
-            <div>
-              <img
-                src="assets/images/clients/clients-2.png"
-                class="opacity-70 hover:opacity-100 transition-all mx-auto block"
-                alt="client-logo"
-              />
-            </div>
-            <div>
-              <img
-                src="assets/images/clients/clients-3.png"
-                class="opacity-70 hover:opacity-100 transition-all mx-auto block"
-                alt="client-logo"
-              />
-            </div>
-            <div>
-              <img
-                src="assets/images/clients/clients-4.png"
-                class="opacity-70 hover:opacity-100 transition-all mx-auto block"
-                alt="client-logo"
-              />
-            </div>
           </div>
         </div>
       </section>
