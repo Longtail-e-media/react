@@ -6,6 +6,7 @@ import { TiLeaf } from "react-icons/ti";
 import { GiShipWheel } from "react-icons/gi";
 import { PiAirplay } from "react-icons/pi";
 import WorkGallery from "../components/WorkGallery";
+import ServiceBlock from "../components/ServiceBlock";
 
 const Home = () => {
   const [activeFilter, setActiveFilter] = useState("");
@@ -97,6 +98,30 @@ const Home = () => {
       url: "/images/works/img13.jpg",
       title: "Shake It!",
       subTitle: "Illustrations, Graphics",
+    },
+  ];
+
+  const services = [
+    {
+      id: 1,
+      icon: <TiLeaf />,
+      title: "Branding",
+      content:
+        "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat.",
+    },
+    {
+      id: 2,
+      icon: <GiShipWheel />,
+      title: "Highly customizable",
+      content:
+        "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat.",
+    },
+    {
+      id: 3,
+      icon: <PiAirplay />,
+      title: "Responsive design",
+      content:
+        "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat.",
     },
   ];
 
@@ -210,58 +235,7 @@ const Home = () => {
       <section className="section py-10">
         <div className="container">
           <div className="grid lg:grid-cols-3 gap-8 text-center">
-            <div>
-              <div className="p-5">
-                <div className="text-5xl text-blue-500">
-                  <i className="pe-7s-">
-                    <TiLeaf />
-                  </i>
-                </div>
-                <h4 className="uppercase text-base my-3">Branding</h4>
-
-                <p className="text-muted">
-                  Duis aute irure dolor in reprehenderit in voluptate velit esse
-                  cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                  occaecat.
-                </p>
-              </div>
-            </div>
-
-            <div>
-              <div className="p-5">
-                <div className="text-5xl text-blue-500">
-                  <i className="pe-7s-">
-                    <GiShipWheel />
-                  </i>
-                </div>
-                <h4 className="uppercase text-base my-3">
-                  Highly customizable
-                </h4>
-
-                <p className="text-muted">
-                  Duis aute irure dolor in reprehenderit in voluptate velit esse
-                  cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                  occaecat.
-                </p>
-              </div>
-            </div>
-
-            <div>
-              <div className="p-5">
-                <div className="text-5xl text-blue-500">
-                  <i className="pe-7s-">
-                    <PiAirplay />
-                  </i>
-                </div>
-                <h4 className="uppercase text-base my-3">Responsive design</h4>
-
-                <p className="text-muted">
-                  Duis aute irure dolor in reprehenderit in voluptate velit esse
-                  cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                  occaecat.
-                </p>
-              </div>
-            </div>
+            <ServiceBlock services={services} />
           </div>
         </div>
       </section>
