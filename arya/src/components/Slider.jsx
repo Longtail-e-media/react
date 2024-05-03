@@ -5,7 +5,7 @@ import React, { useState } from "react";
 const Slider = () => {
     const slides = [
         {
-          url: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80",
+          url: "https://www.learnreligions.com/thmb/B6kSqgyO7mor_eUTkviOgKUSZQU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/himalaya-mountains-landscape-from-kalapattar-view-point-at-sunset--everest-region--nepal-864223704-5c7374c546e0fb0001835dc3.jpg",
         },
        
       ];
