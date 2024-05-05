@@ -101,15 +101,15 @@ const Work = () => {
     <>
       <Navbar />
 
-      <section class="section py-14" id="home">
-        <div class="container">
-          <div class="lg:flex justify-center">
-            <div class="lg:w-2/3 mx-2">
-              <div class="text-center">
-                <h1 class="text-4xl font-semibold leading-[50px] tracking-wide text-transparent bg-clip-text bg-gradient-to-l from-pink-400 to-blue-600 mb-10">
+      <section className="section py-14" id="home">
+        <div className="container">
+          <div className="lg:flex justify-center">
+            <div className="lg:w-2/3 mx-2">
+              <div className="text-center">
+                <h1 className="text-4xl font-semibold leading-[50px] tracking-wide text-transparent bg-clip-text bg-gradient-to-l from-pink-400 to-blue-600 mb-10">
                   See our Works
                 </h1>
-                <p class="text-base text-gray-400">
+                <p className="text-base text-gray-400">
                   We create digital assets and we're focused on Web Technologies
                   and Design, based on London, United Kingdom. We build creative
                   & professional themes.
@@ -120,12 +120,12 @@ const Work = () => {
         </div>
       </section>
 
-      <section class="section">
-        <div class="container">
-          <div class="flex justify-center">
-            <div class="w-full filters-group-wrap mb-3">
-              <div class="flex justify-center mb-5">
-                <ul class="filter-options flex flex-wrap gap-4 justify-center">
+      <section className="section">
+        <div className="container">
+          <div className="flex justify-center">
+            <div className="w-full filters-group-wrap mb-3">
+              <div className="flex justify-center mb-5">
+                <ul className="filter-options flex flex-wrap gap-4 justify-center">
                   <li
                     className={` ${activeFilter === "" ? "active" : ""} `}
                     onClick={() => {
@@ -175,7 +175,7 @@ const Work = () => {
             </div>
           </div>
 
-          <div id="grid" class="grid grid-cols-3">
+          <div id="grid" className="grid grid-cols-3">
             {(activeFilter === "" || activeFilter === "android") && (
               <WorkGallery images={androidImages} />
             )}
@@ -193,12 +193,12 @@ const Work = () => {
             )}
           </div>
 
-          <div class="flex justify-center my-8">
+          <div className="flex justify-center my-8">
             <Link
               to="/work"
-              class="py-4 px-7 rounded text-sm font-medium bg-blue-500 text-white"
+              className="py-4 px-7 rounded text-sm font-medium bg-blue-500 text-white"
             >
-              More Works <i class="mdi mdi-arrow-right ms-1"></i>
+              More Works <i className="mdi mdi-arrow-right ms-1"></i>
             </Link>
           </div>
         </div>

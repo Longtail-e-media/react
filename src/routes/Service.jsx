@@ -66,15 +66,15 @@ const Service = () => {
     <>
       <Navbar />
 
-      <section class="section py-14" id="home">
-        <div class="container">
-          <div class="lg:flex justify-center">
-            <div class="lg:w-2/3 mx-2">
-              <div class="text-center">
-                <h1 class="text-4xl font-semibold leading-[50px] tracking-wide text-transparent bg-clip-text bg-gradient-to-l from-pink-400 to-blue-600 mb-10">
+      <section className="section py-14" id="home">
+        <div className="container">
+          <div className="lg:flex justify-center">
+            <div className="lg:w-2/3 mx-2">
+              <div className="text-center">
+                <h1 className="text-4xl font-semibold leading-[50px] tracking-wide text-transparent bg-clip-text bg-gradient-to-l from-pink-400 to-blue-600 mb-10">
                   We provide a absolute list of Superior digital services.
                 </h1>
-                <p class="text-base text-gray-400">
+                <p className="text-base text-gray-400">
                   We create digital assets and we're focused on Web Technologies
                   and Design, based on London, United Kingdom. We build creative
                   & professional themes.
@@ -85,24 +85,24 @@ const Service = () => {
         </div>
       </section>
 
-      <section class="section py-10">
-        <div class="container">
-          <div class="grid lg:grid-cols-3 gap-8">
+      <section className="section py-10">
+        <div className="container">
+          <div className="grid lg:grid-cols-3 gap-8">
             <ServiceBlock services={services} />
           </div>
         </div>
       </section>
 
-      <section class="section py-10">
-        <div class="container">
-          <div class="flex">
-            <div class="w-full flex justify-center">
-              <div class="text-4xl text-black border-b-[3px] border-black">
+      <section className="section py-10">
+        <div className="container">
+          <div className="flex">
+            <div className="w-full flex justify-center">
+              <div className="text-4xl text-black border-b-[3px] border-black">
                 Our Clients.
               </div>
             </div>
           </div>
-          <div class="grid lg:grid-cols-4 gap-10 mt-16">
+          <div className="grid lg:grid-cols-4 gap-10 mt-16">
             <ClientBlock clients={clients} />
           </div>
         </div>
