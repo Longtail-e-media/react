@@ -1,6 +1,65 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import BlogBlock from "../components/BlogBlock";
+
+const blogs = [
+  {
+    id: 1,
+    img: "images/blog/blog-1.jpg",
+    title: "Beautiful Day With Friends In Paris",
+    href: "#",
+    blog_date: "Mar 03, 2020",
+    tags: ["Branding", "Design"],
+    comments: "3 Comments",
+    brief:
+      "Whether an identity or campaign, we make your brand visible, relevant and effective by placing the digital at the center of its ecosystem, without underestimating the power of traditional media. Whether an identity or campaign, we make your brand visible.",
+  },
+  {
+    id: 2,
+    img: "images/blog/blog-3.jpg",
+    title: "Nature valley with cooling environment",
+    href: "#",
+    blog_date: "Mar 03, 2020",
+    tags: ["Branding", "Design"],
+    comments: "3 Comments",
+    brief:
+      "Whether an identity or campaign, we make your brand visible, relevant and effective by placing the digital at the center of its ecosystem, without underestimating the power of traditional media. Whether an identity or campaign, we make your brand visible.",
+  },
+  {
+    id: 3,
+    img: "images/blog/blog-2.jpg",
+    title: "Elegant, Simple & Minimalist Blog Made With Love",
+    href: "#",
+    blog_date: "Mar 03, 2020",
+    tags: ["Branding", "Design"],
+    comments: "3 Comments",
+    brief:
+      "Whether an identity or campaign, we make your brand visible, relevant and effective by placing the digital at the center of its ecosystem, without underestimating the power of traditional media. Whether an identity or campaign, we make your brand visible.",
+  },
+  {
+    id: 4,
+    img: "images/blog/blog-4.jpg",
+    title: "15 Best Healthy and Easy Salad Recipes",
+    href: "#",
+    blog_date: "Mar 03, 2020",
+    tags: ["Branding", "Design"],
+    comments: "3 Comments",
+    brief:
+      "Whether an identity or campaign, we make your brand visible, relevant and effective by placing the digital at the center of its ecosystem, without underestimating the power of traditional media. Whether an identity or campaign, we make your brand visible.",
+  },
+  {
+    id: 5,
+    img: "images/blog/blog-5.jpg",
+    title: "Easy Homemade Candy Recipes and Ideas",
+    href: "#",
+    blog_date: "Mar 03, 2020",
+    tags: ["Branding", "Design"],
+    comments: "3 Comments",
+    brief:
+      "Whether an identity or campaign, we make your brand visible, relevant and effective by placing the digital at the center of its ecosystem, without underestimating the power of traditional media. Whether an identity or campaign, we make your brand visible.",
+  },
+];
 
 const Blog = () => {
   return (
@@ -29,232 +88,7 @@ const Blog = () => {
           <div className="grid lg:grid-cols-3 gap-6">
             <div className="col-span-2">
               <div className="prose max-w-full">
-                <article>
-                  <div>
-                    <a href="#">
-                      <img
-                        src="assets/images/blog/blog-1.jpg"
-                        alt=""
-                        className="rounded"
-                      />
-                    </a>
-                  </div>
-
-                  <div>
-                    <h2>
-                      <a href="#">Beautiful Day With Friends In Paris</a>
-                    </h2>
-                    <div className="flex space-x-6">
-                      <div>
-                        <i className="icofont-ui-calendar"></i> Mar 03, 2020
-                      </div>
-                      <div>
-                        <i className="icofont-tags"></i> <a href="#">Branding</a>,{" "}
-                        <a href="#">Design</a>
-                      </div>
-                      <div>
-                        <i className="icofont-comment"></i>{" "}
-                        <a href="#">3 Comments</a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div>
-                    <p>
-                      Whether an identity or campaign, we make your brand
-                      visible, relevant and effective by placing the digital at
-                      the center of its ecosystem, without underestimating the
-                      power of traditional media. Whether an identity or
-                      campaign, we make your brand visible.
-                    </p>
-                  </div>
-
-                  <a href="#">
-                    Read More <i className="mdi mdi-arrow-right"></i>
-                  </a>
-                </article>
-
-                <article>
-                  <div>
-                    <a href="#">
-                      <img
-                        src="assets/images/blog/blog-3.jpg"
-                        alt=""
-                        className="rounded"
-                      />
-                    </a>
-                  </div>
-
-                  <div>
-                    <h2>
-                      <a href="#">Nature valley with cooling environment</a>
-                    </h2>
-                    <div className="flex space-x-6">
-                      <div>
-                        <i className="icofont-ui-calendar"></i> Mar 03, 2020
-                      </div>
-                      <div>
-                        <i className="icofont-tags"></i> <a href="#">Branding</a>,{" "}
-                        <a href="#">Design</a>
-                      </div>
-                      <div>
-                        <i className="icofont-comment"></i>{" "}
-                        <a href="#">3 Comments</a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div>
-                    <p>
-                      Whether an identity or campaign, we make your brand
-                      visible, relevant and effective by placing the digital at
-                      the center of its ecosystem, without underestimating the
-                      power of traditional media. Whether an identity or
-                      campaign, we make your brand visible.
-                    </p>
-                  </div>
-
-                  <a href="#">
-                    Read More <i className="mdi mdi-arrow-right"></i>
-                  </a>
-                </article>
-
-                <article>
-                  <div>
-                    <a href="#">
-                      <img
-                        src="assets/images/blog/blog-2.jpg"
-                        alt=""
-                        className="rounded"
-                      />
-                    </a>
-                  </div>
-
-                  <div>
-                    <h2>
-                      <a href="#">
-                        Elegant, Simple &amp; Minimalist Blog Made With Love
-                      </a>
-                    </h2>
-                    <div className="flex space-x-6">
-                      <div>
-                        <i className="icofont-ui-calendar"></i> Mar 05, 2020
-                      </div>
-                      <div>
-                        <i className="icofont-tags"></i> <a href="#">Branding</a>,{" "}
-                        <a href="#">Design</a>
-                      </div>
-                      <div>
-                        <i className="icofont-comment"></i>{" "}
-                        <a href="#">3 Comments</a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div>
-                    <p>
-                      Whether an identity or campaign, we make your brand
-                      visible, relevant and effective by placing the digital at
-                      the center of its ecosystem, without underestimating the
-                      power of traditional media. Whether an identity or
-                      campaign, we make your brand visible.
-                    </p>
-                  </div>
-
-                  <a href="#">
-                    Read More <i className="mdi mdi-arrow-right"></i>
-                  </a>
-                </article>
-
-                <article>
-                  <div>
-                    <a href="#">
-                      <img
-                        src="assets/images/blog/blog-4.jpg"
-                        alt=""
-                        className="rounded"
-                      />
-                    </a>
-                  </div>
-
-                  <div>
-                    <h2>
-                      <a href="#">15 Best Healthy and Easy Salad Recipes</a>
-                    </h2>
-                    <div className="flex space-x-6">
-                      <div>
-                        <i className="icofont-ui-calendar"></i> Mar 03, 2020
-                      </div>
-                      <div>
-                        <i className="icofont-tags"></i> <a href="#">Branding</a>,{" "}
-                        <a href="#">Design</a>
-                      </div>
-                      <div>
-                        <i className="icofont-comment"></i>{" "}
-                        <a href="#">3 Comments</a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div>
-                    <p>
-                      Whether an identity or campaign, we make your brand
-                      visible, relevant and effective by placing the digital at
-                      the center of its ecosystem, without underestimating the
-                      power of traditional media. Whether an identity or
-                      campaign, we make your brand visible.
-                    </p>
-                  </div>
-
-                  <a href="#">
-                    Read More <i className="mdi mdi-arrow-right"></i>
-                  </a>
-                </article>
-
-                <article>
-                  <div>
-                    <a href="#">
-                      <img
-                        src="assets/images/blog/blog-5.jpg"
-                        alt=""
-                        className="rounded"
-                      />
-                    </a>
-                  </div>
-
-                  <div>
-                    <h2>
-                      <a href="#">Easy Homemade Candy Recipes and Ideas</a>
-                    </h2>
-                    <div className="flex space-x-6">
-                      <div>
-                        <i className="icofont-ui-calendar"></i> Mar 03, 2020
-                      </div>
-                      <div>
-                        <i className="icofont-tags"></i> <a href="#">Branding</a>,{" "}
-                        <a href="#">Design</a>
-                      </div>
-                      <div>
-                        <i className="icofont-comment"></i>{" "}
-                        <a href="#">3 Comments</a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div>
-                    <p>
-                      Whether an identity or campaign, we make your brand
-                      visible, relevant and effective by placing the digital at
-                      the center of its ecosystem, without underestimating the
-                      power of traditional media. Whether an identity or
-                      campaign, we make your brand visible.
-                    </p>
-                  </div>
-
-                  <a href="#">
-                    Read More <i className="mdi mdi-arrow-right"></i>
-                  </a>
-                </article>
+                <BlogBlock blogs={blogs} />
               </div>
 
               <div className="flex mt-6">
