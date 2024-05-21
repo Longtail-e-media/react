@@ -1,8 +1,5 @@
-# React + Vite
+## The slider issue of the carousel of the latest real estate properties amd the neighborhood has been fixed. 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- The slider has a single component which now can have designs for both type 
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- The slider length comparision has been fixed.

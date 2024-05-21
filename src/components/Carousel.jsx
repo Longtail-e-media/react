@@ -33,14 +33,16 @@ const Carousel = ({ layout, limit, items, cover_width }) => {
                 className={`item shadow-lg rounded-lg p-5 w-1/${limit} flex-none`}
               >
                 <div className="imgCover w-100 bg-green-300 h-56 rounded-lg mb-4 overflow-hidden">
-                  <img src={property.img} alt="" className="object-cover h-full" />
+                  <img
+                    src={property.img}
+                    alt=""
+                    className="object-cover h-full"
+                  />
                 </div>
                 <h3 className="text-lg font-bold">{property.name}</h3>
-                <p className="text-xs ">
-                  {property.address}
-                </p>
+                <p className="text-xs ">{property.address}</p>
                 <div className="py-3 text-2xl font-bold text-yellow-500">
-                  {property.price }
+                  {property.price}
                 </div>
                 <div className="amenities flex gap-2 border-b pb-3">
                   <div className="item">
@@ -97,7 +99,8 @@ const Carousel = ({ layout, limit, items, cover_width }) => {
             {items.map((property, index) => (
               <div
                 key={index}
-                className={`item flex-none bg-gray-300 w-1/${limit} h-80 rounded-xl bg-cover`} style={{'backgroundImage': `url(${property.img})`}}
+                className={`item flex-none bg-gray-300 w-1/${limit} h-80 rounded-xl bg-cover`}
+                style={{ backgroundImage: `url(${property.img})` }}
               >
                 <strong>{property.name}</strong>
                 <span>1200 liting</span>

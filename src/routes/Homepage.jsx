@@ -3,6 +3,7 @@ import "./Homepage.css";
 import Layout from "./Layout";
 import { properties, locations } from "../data/data";
 import Carousel from "../components/Carousel";
+import RealState from "../components/RealState";
 
 const Homepage = () => {
   const [newProperties, setNewProperties] = useState(() => {
@@ -19,6 +20,7 @@ const Homepage = () => {
 
   return (
     <Layout>
+      <RealState />
       <div className="latest py-12">
         <div className="container mx-auto py-8 text-center ">
           <div className="title">

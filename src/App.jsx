@@ -1,17 +1,16 @@
-import React from 'react';
-import {RouterProvider} from 'react-router-dom';
+import React from "react";
+import { RouterProvider } from "react-router-dom";
 import { router } from "./router";
-import Layout from './routes/Layout';
+import Layout from "./routes/Layout";
 
 const App = () => {
   return (
     <div>
-   
-      <RouterProvider router={router} >
+      <RouterProvider router={router}>
         <Layout />
-        </RouterProvider>
+      </RouterProvider>
     </div>
   );
-}
+};
 
 export default App;
