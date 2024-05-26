@@ -7,6 +7,7 @@ import { GiShipWheel } from "react-icons/gi";
 import { PiAirplay } from "react-icons/pi";
 import WorkGallery from "../components/WorkGallery";
 import ServiceBlock from "../components/ServiceBlock";
+import HomeContentBlock from "../components/HomeContentBlock";
 
 const Home = () => {
   const [activeFilter, setActiveFilter] = useState("");
@@ -134,14 +135,7 @@ const Home = () => {
           <div className="lg:flex justify-center">
             <div className="lg:w-2/3 mx-2">
               <div className="text-center">
-                <h1 className="text-4xl font-semibold leading-[50px] tracking-wide text-transparent bg-clip-text bg-gradient-to-l from-pink-400 to-blue-600 mb-10">
-                  Buckzo Is One Of Best Web Design & Development Company
-                </h1>
-                <p className="text-base text-gray-400">
-                  We create digital assets and we're focused on Web Technologies
-                  and Design, based on London, United Kingdom. We build creative
-                  & professional themes.
-                </p>
+                <HomeContentBlock />
               </div>
             </div>
           </div>

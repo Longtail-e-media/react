@@ -1,21 +1,13 @@
 import React, { useState } from "react";
 import Icofont from "react-icofont";
 import { Link, NavLink } from "react-router-dom";
+import { navLinks } from "../constants/data";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
-  const navLinks = [
-    { id: 1, title: "Home", link: "/home" },
-    { id: 2, title: "About", link: "/about" },
-    { id: 3, title: "Service", link: "/service" },
-    { id: 4, title: "Work", link: "/work" },
-    { id: 5, title: "Blog", link: "/blog" },
-    { id: 6, title: "Contact", link: "/contact" },
-  ];
 
   return (
     <>
