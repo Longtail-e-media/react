@@ -2,6 +2,9 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import BlogBlock from "../components/BlogBlock";
+import BlogCategoriesBlock from "../components/BlogCategoriesBlock";
+import BlogPopularBlock from "../components/BlogPopularBlock";
+import BlogTagsBlock from "../components/BlogTagsBlock";
 
 const blogs = [
   {
@@ -59,6 +62,53 @@ const blogs = [
     brief:
       "Whether an identity or campaign, we make your brand visible, relevant and effective by placing the digital at the center of its ecosystem, without underestimating the power of traditional media. Whether an identity or campaign, we make your brand visible.",
   },
+];
+
+const categories = [
+  { id: 1, title: "Journey", href: "#", total: 40 },
+  { id: 2, title: "Photography", href: "#", total: 8 },
+  { id: 3, title: "Lifestyle", href: "#", total: 11 },
+  { id: 4, title: "Food & Drinks", href: "#", total: 21 },
+];
+
+const popularBlogs = [
+  {
+    id: 1,
+    img: "images/works/img10.jpg",
+    title: "Beautiful Day With Friends..",
+    href: "#",
+    blog_date: "Feb 15, 2020",
+  },
+  {
+    id: 2,
+    img: "images/works/img2.jpg",
+    title: "Nature valley with cooling..",
+    href: "#",
+    blog_date: "Feb 10, 2020",
+  },
+  {
+    id: 3,
+    img: "images/works/img3.jpg",
+    title: "15 Best Healthy and Easy Salad..",
+    href: "#",
+    blog_date: "Feb 8, 2020",
+  },
+];
+
+const archives = [
+  { id: 1, title: "March 2020", href: "#", total: 40 },
+  { id: 2, title: "April 2020", href: "#", total: 8 },
+  { id: 3, title: "May 2020", href: "#", total: 11 },
+  { id: 4, title: "Feb 2020", href: "#", total: 21 },
+];
+
+const tags = [
+  { id: 1, title: "logo", href: "#" },
+  { id: 2, title: "business", href: "#" },
+  { id: 3, title: "corporate", href: "#" },
+  { id: 4, title: "e-commerce", href: "#" },
+  { id: 5, title: "agency", href: "#" },
+  { id: 6, title: "responsive", href: "#" },
 ];
 
 const Blog = () => {
@@ -162,18 +212,7 @@ const Blog = () => {
                   <div className="h-px bg-blue-700 w-8 absolute rounded-full"></div>
                 </div>
                 <div className="space-y-5">
-                  <div>
-                    <a href="#">Journey</a> (40)
-                  </div>
-                  <div>
-                    <a href="#">Photography</a> (08)
-                  </div>
-                  <div>
-                    <a href="#">Lifestyle</a> (11)
-                  </div>
-                  <div>
-                    <a href="#">Food &amp; Drinks</a> (21)
-                  </div>
+                  <BlogCategoriesBlock categories={categories} />
                 </div>
               </aside>
 
@@ -184,41 +223,7 @@ const Blog = () => {
                   <div className="h-px bg-blue-700 w-8 absolute rounded-full"></div>
                 </div>
                 <div>
-                  <div className="flex border-b mb-4 pb-4">
-                    <div className="w-16">
-                      <a href="#">
-                        <img src="assets/images/works/img10.jpg" alt="" />
-                      </a>
-                    </div>
-                    <div className="mt-0.5 ml-4">
-                      <a href="#">Beautiful Day With Friends..</a>
-                      <span>Feb 15, 2020</span>
-                    </div>
-                  </div>
-
-                  <div className="flex border-b mb-4 pb-4">
-                    <div className="w-16">
-                      <a href="#">
-                        <img src="assets/images/works/img2.jpg" alt="" />
-                      </a>
-                    </div>
-                    <div className="mt-0.5 ml-4">
-                      <a href="#">Nature valley with cooling..</a>
-                      <span>Feb 10, 2020</span>
-                    </div>
-                  </div>
-
-                  <div className="flex">
-                    <div className="w-16">
-                      <a href="#">
-                        <img src="assets/images/works/img3.jpg" alt="" />
-                      </a>
-                    </div>
-                    <div className="mt-0.5 ml-4">
-                      <a href="#">15 Best Healthy and Easy Salad..</a>
-                      <span>Feb 8, 2020</span>
-                    </div>
-                  </div>
+                  <BlogPopularBlock popularBlogs={popularBlogs} />
                 </div>
               </aside>
 
@@ -246,18 +251,7 @@ const Blog = () => {
                 </div>
 
                 <div className="space-y-5">
-                  <div>
-                    <a href="#">March 2020</a> (40)
-                  </div>
-                  <div>
-                    <a href="#">April 2020</a> (08)
-                  </div>
-                  <div>
-                    <a href="#">May 2020</a> (11)
-                  </div>
-                  <div>
-                    <a href="#">Feb 2020</a> (21)
-                  </div>
+                  <BlogCategoriesBlock categories={archives} />
                 </div>
               </aside>
 
@@ -268,42 +262,7 @@ const Blog = () => {
                   <div className="h-px bg-blue-700 w-8 absolute rounded-full"></div>
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  <a
-                    className="px-2 py-1.5 bg-gray-100 text-[10px] hover:bg-blue-500 hover:text-white uppercase rounded-sm"
-                    href="#"
-                  >
-                    logo
-                  </a>
-                  <a
-                    className="px-2 py-1.5 bg-gray-100 text-[10px] hover:bg-blue-500 hover:text-white uppercase rounded-sm"
-                    href="#"
-                  >
-                    business
-                  </a>
-                  <a
-                    className="px-2 py-1.5 bg-gray-100 text-[10px] hover:bg-blue-500 hover:text-white uppercase rounded-sm"
-                    href="#"
-                  >
-                    corporate
-                  </a>
-                  <a
-                    className="px-2 py-1.5 bg-gray-100 text-[10px] hover:bg-blue-500 hover:text-white uppercase rounded-sm"
-                    href="#"
-                  >
-                    e-commerce
-                  </a>
-                  <a
-                    className="px-2 py-1.5 bg-gray-100 text-[10px] hover:bg-blue-500 hover:text-white uppercase rounded-sm"
-                    href="#"
-                  >
-                    agency
-                  </a>
-                  <a
-                    className="px-2 py-1.5 bg-gray-100 text-[10px] hover:bg-blue-500 hover:text-white uppercase rounded-sm"
-                    href="#"
-                  >
-                    responsive
-                  </a>
+                  <BlogTagsBlock tags={tags} />
                 </div>
               </aside>
             </div>
