@@ -1,58 +1,9 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { TiLeaf } from "react-icons/ti";
-import { GiShipWheel } from "react-icons/gi";
-import { PiAirplay, PiCoffee } from "react-icons/pi";
 import ServiceBlock from "../components/ServiceBlock";
-import { IoMdRocket } from "react-icons/io";
-import { TbHeadset } from "react-icons/tb";
 import ClientBlock from "../components/ClientBlock";
-
-const services = [
-  {
-    id: 1,
-    icon: <TiLeaf />,
-    title: "Branding",
-    content:
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat.",
-  },
-  {
-    id: 2,
-    icon: <GiShipWheel />,
-    title: "Highly customizable",
-    content:
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat.",
-  },
-  {
-    id: 3,
-    icon: <PiAirplay />,
-    title: "Responsive design",
-    content:
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat.",
-  },
-  {
-    id: 4,
-    icon: <PiCoffee />,
-    title: "User Experience",
-    content:
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat.",
-  },
-  {
-    id: 5,
-    icon: <IoMdRocket />,
-    title: "Optimised for Speed",
-    content:
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat.",
-  },
-  {
-    id: 6,
-    icon: <TbHeadset />,
-    title: "Dedicated support",
-    content:
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat.",
-  },
-];
+import { services } from "../constants/data";
 
 const clients = [
   { id: 1, img: "images/clients/clients-1.png", title: "Essence" },
