@@ -3,6 +3,15 @@ import { GiShipWheel } from "react-icons/gi";
 import { PiAirplay, PiCoffee } from "react-icons/pi";
 import { IoMdRocket } from "react-icons/io";
 import { TbHeadset } from "react-icons/tb";
+import mithila from "../../public/images/bg.jpg";
+
+const siteName = "Buckzo";
+const author = "SMS";
+const emailAddress = "support.yourdomain@email.com";
+const telephone = "+(123) 456-7890";
+const address = "09 Design Street, Downtown Victoria, Australia";
+
+export { mithila, siteName, author, emailAddress, telephone, address };
 
 export const navLinks = [
   { id: 1, title: "Home", link: "/home" },
@@ -17,6 +26,7 @@ export const homeContent = {
   title: "Buckzo Is One Of Best Web Design & Development Company",
   subtitle:
     "We create digital assets and we're focused on Web Technologies and Design, based on London, United Kingdom. We build creative & professional themes.",
+  subtext: `A digital studio crafting <span class="border-b-[3px] border-black">beautiful</span> experiences.`,
 };
 
 export const workImages = [
@@ -157,3 +167,68 @@ export const services = [
       "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat.",
   },
 ];
+
+export const socialLinks = [
+  { id: 1, title: "Dribble", link: "#", class: "icofont-dribble" },
+  { id: 2, title: "Facebook", link: "#", class: "icofont-facebook" },
+  { id: 3, title: "Skype", link: "#", class: "icofont-skype" },
+  { id: 4, title: "Twitter", link: "#", class: "icofont-twitter" },
+  { id: 5, title: "Whatsapp", link: "#", class: "icofont-whatsapp" },
+];
+
+export const testimonials = [
+  {
+    id: 1,
+    content:
+      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less.",
+    img: "/images/user-1.png",
+    title: "Theme User",
+    subTitle: "Web Designer",
+  },
+];
+
+export const teams = [
+  {
+    id: 1,
+    img: "/images/team/team-1.jpg",
+    title: "Johan De Jager",
+    job: "CEO/Founder",
+  },
+  {
+    id: 2,
+    img: "/images/team/team-2.jpg",
+    title: "Andrew Sparks",
+    job: "CTO/Founder",
+  },
+  {
+    id: 3,
+    img: "/images/team/team-3.jpg",
+    title: "David Downs",
+    job: "Web Designer",
+  },
+];
+
+export const serviceContent = {
+  title: "We provide a absolute list of Superior digital services.",
+  subtitle:
+    "We create digital assets and we're focused on Web Technologies and Design, based on London, United Kingdom. We build creative & professional themes.",
+};
+
+export const clients = [
+  { id: 1, img: "images/clients/clients-1.png", title: "Essence" },
+  { id: 2, img: "images/clients/clients-2.png", title: "Black Swan" },
+  { id: 3, img: "images/clients/clients-3.png", title: "Toykids" },
+  { id: 4, img: "images/clients/clients-4.png", title: "Quadra" },
+];
+
+export const workContent = {
+  title: "See our Works",
+  subtitle:
+    "We create digital assets and we're focused on Web Technologies and Design, based on London, United Kingdom. We build creative & professional themes.",
+};
+
+export const contactContent = {
+  title: "Let's keep in touch.",
+  subtitle:
+    "Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Proin gravida nibh vel velit auctor Aenean sollicitudin, adipisicing elit sed lorem quis bibendum auctor.",
+};

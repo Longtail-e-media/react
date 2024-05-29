@@ -2,15 +2,16 @@ import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ClientBlock from "../components/ClientBlock";
+import {
+  address,
+  clients,
+  contactContent,
+  emailAddress,
+  telephone,
+} from "../constants/data";
+import { Link } from "react-router-dom";
 
 const Contact = () => {
-  const clients = [
-    { id: 1, img: "images/clients/clients-1.png", title: "Essence" },
-    { id: 2, img: "images/clients/clients-2.png", title: "Black Swan" },
-    { id: 3, img: "images/clients/clients-3.png", title: "Toykids" },
-    { id: 4, img: "images/clients/clients-4.png", title: "Quadra" },
-  ];
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -28,7 +29,7 @@ const Contact = () => {
     // Clear the error message when the input is changed
     setErrors({
       ...errors,
-      [name]: ''
+      [name]: "",
     });
   };
 
@@ -69,13 +70,10 @@ const Contact = () => {
             <div className="lg:w-2/3 mx-2">
               <div className="text-center">
                 <h1 className="text-4xl font-semibold leading-[50px] tracking-wide text-transparent bg-clip-text bg-gradient-to-l from-pink-400 to-blue-600 mb-10">
-                  Let's keep in touch.
+                  {contactContent.title}
                 </h1>
                 <p className="text-base text-gray-400">
-                  Aenean sollicitudin, lorem quis bibendum auctor, nisi elit
-                  consequat ipsum, nec sagittis sem nibh id elit. Proin gravida
-                  nibh vel velit auctor Aenean sollicitudin, adipisicing elit
-                  sed lorem quis bibendum auctor.
+                  {contactContent.subtitle}
                 </p>
               </div>
             </div>
@@ -90,29 +88,29 @@ const Contact = () => {
               <div className="md:flex md:flex-row lg:justify-start lg:flex-col lg:text-left md:justify-between">
                 <div className="mb-6">
                   <h1 className=" text-base font-medium mb-2">Email Address</h1>
-                  <a
+                  <Link
                     className="text-gray-400 text-sm font-medium"
-                    href="mailto:support.yourdomain@email.com"
+                    to={`mailto:${emailAddress}`}
+                    target="_blank"
                   >
-                    support.yourdomain@email.com
-                  </a>
+                    {emailAddress}
+                  </Link>
                 </div>
 
                 <div className="mb-6">
                   <h1 className=" text-base font-medium mb-2">Telephone</h1>
-                  <a
+                  <Link
                     className="text-gray-400 text-sm font-medium"
-                    href="tel:+(123) 456-7890"
+                    to={`tel:${telephone}`}
+                    target="_blank"
                   >
-                    +(123) 456-7890
-                  </a>
+                    {telephone}
+                  </Link>
                 </div>
 
                 <div className="mb-6">
                   <h1 className=" text-base font-medium mb-2">Address</h1>
-                  <h1 className="text-gray-400 text-sm">
-                    09 Design Street, Downtown Victoria, Australia
-                  </h1>
+                  <h1 className="text-gray-400 text-sm">{address}</h1>
                 </div>
               </div>
             </div>

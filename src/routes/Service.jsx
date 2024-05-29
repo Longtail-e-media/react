@@ -3,14 +3,8 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ServiceBlock from "../components/ServiceBlock";
 import ClientBlock from "../components/ClientBlock";
-import { services } from "../constants/data";
-
-const clients = [
-  { id: 1, img: "images/clients/clients-1.png", title: "Essence" },
-  { id: 2, img: "images/clients/clients-2.png", title: "Black Swan" },
-  { id: 3, img: "images/clients/clients-3.png", title: "Toykids" },
-  { id: 4, img: "images/clients/clients-4.png", title: "Quadra" },
-];
+import { clients, services } from "../constants/data";
+import ServiceContentBlock from "../components/ServiceContentBlock";
 
 const Service = () => {
   return (
@@ -22,14 +16,7 @@ const Service = () => {
           <div className="lg:flex justify-center">
             <div className="lg:w-2/3 mx-2">
               <div className="text-center">
-                <h1 className="text-4xl font-semibold leading-[50px] tracking-wide text-transparent bg-clip-text bg-gradient-to-l from-pink-400 to-blue-600 mb-10">
-                  We provide a absolute list of Superior digital services.
-                </h1>
-                <p className="text-base text-gray-400">
-                  We create digital assets and we're focused on Web Technologies
-                  and Design, based on London, United Kingdom. We build creative
-                  & professional themes.
-                </p>
+                <ServiceContentBlock />
               </div>
             </div>
           </div>
