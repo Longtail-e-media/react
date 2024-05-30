@@ -21,24 +21,33 @@ const Properties = () => {
                 <div className="imgCover w-100 bg-green-300 h-56 rounded-lg mb-4 overflow-hidden">
                   <img src={property.img} alt="" className="w-full h-full" />
                 </div>
-                <h3 className="text-lg font-bold">
-                  {property.name}
-                </h3>
-                <p className="text-xs ">
-                  {property.address}
-                </p>
+                <h3 className="text-lg font-bold">{property.name}</h3>
+                <p className="text-xs ">{property.address}</p>
                 <div className="py-3 text-2xl font-bold text-yellow-500">
                   {property.price}
                 </div>
                 <div className="amenities flex gap-2 border-b pb-3 h-fit">
                   <div className="item">
-                  {property.beds && <p>Beds: <strong>{property.beds}</strong></p>}
+                    {property.beds && (
+                      <p>
+                        Beds: <strong>{property.beds}</strong>
+                      </p>
+                    )}
                   </div>
                   <div className="item">
-                    {property.baths && <p>Baths: <strong>{property.baths}</strong></p>}
+                    {property.baths && (
+                      <p>
+                        Baths: <strong>{property.baths}</strong>
+                      </p>
+                    )}
                   </div>
                   <div className="item">
-                  {property.area && <p> Sqft: <strong>{property.area}</strong></p>}
+                    {property.area && (
+                      <p>
+                        {" "}
+                        Sqft: <strong>{property.area}</strong>
+                      </p>
+                    )}
                   </div>
                 </div>
                 <div className="lowerbtns flex justify-between pt-3">
@@ -50,8 +59,6 @@ const Properties = () => {
                 </div>
               </div>
             ))}
-
-           
           </div>
         </div>
         <div className="w-1/5 ms-8">

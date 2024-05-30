@@ -20,8 +20,6 @@ const Homepage = () => {
 
   return (
     <Layout>
-      <span className="text-red-600">The Same Component has been used for all 3 sliders along with the condition of *new* and *sale*</span>
-      <RealState />
       <div className="latest py-12">
         <div className="container mx-auto py-8 text-center ">
           <div className="title">
@@ -75,7 +73,6 @@ const Homepage = () => {
             layout="two"
             items={locations}
             limit={3}
-            cover_width={1200}
           />
         </div>
       </div>
