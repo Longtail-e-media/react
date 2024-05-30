@@ -232,3 +232,120 @@ export const contactContent = {
   subtitle:
     "Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Proin gravida nibh vel velit auctor Aenean sollicitudin, adipisicing elit sed lorem quis bibendum auctor.",
 };
+
+export const blogContent = {
+  title: "News and Stories",
+  subtitle:
+    "Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Proin gravida nibh vel velit auctor Aenean sollicitudin, adipisicing elit sed lorem quis bibendum auctor.",
+};
+
+export const blogs = [
+  {
+    id: 1,
+    img: "images/blog/blog-1.jpg",
+    title: "Beautiful Day With Friends In Paris",
+    href: "#",
+    blog_date: "Mar 03, 2020",
+    tags: ["Branding", "Design"],
+    comments: "3 Comments",
+    brief:
+      "Whether an identity or campaign, we make your brand visible, relevant and effective by placing the digital at the center of its ecosystem, without underestimating the power of traditional media. Whether an identity or campaign, we make your brand visible.",
+  },
+  {
+    id: 2,
+    img: "images/blog/blog-3.jpg",
+    title: "Nature valley with cooling environment",
+    href: "#",
+    blog_date: "Mar 03, 2020",
+    tags: ["Branding", "Design"],
+    comments: "3 Comments",
+    brief:
+      "Whether an identity or campaign, we make your brand visible, relevant and effective by placing the digital at the center of its ecosystem, without underestimating the power of traditional media. Whether an identity or campaign, we make your brand visible.",
+  },
+  {
+    id: 3,
+    img: "images/blog/blog-2.jpg",
+    title: "Elegant, Simple & Minimalist Blog Made With Love",
+    href: "#",
+    blog_date: "Mar 03, 2020",
+    tags: ["Branding", "Design"],
+    comments: "3 Comments",
+    brief:
+      "Whether an identity or campaign, we make your brand visible, relevant and effective by placing the digital at the center of its ecosystem, without underestimating the power of traditional media. Whether an identity or campaign, we make your brand visible.",
+  },
+  {
+    id: 4,
+    img: "images/blog/blog-4.jpg",
+    title: "15 Best Healthy and Easy Salad Recipes",
+    href: "#",
+    blog_date: "Mar 03, 2020",
+    tags: ["Branding", "Design"],
+    comments: "3 Comments",
+    brief:
+      "Whether an identity or campaign, we make your brand visible, relevant and effective by placing the digital at the center of its ecosystem, without underestimating the power of traditional media. Whether an identity or campaign, we make your brand visible.",
+  },
+  {
+    id: 5,
+    img: "images/blog/blog-5.jpg",
+    title: "Easy Homemade Candy Recipes and Ideas",
+    href: "#",
+    blog_date: "Mar 03, 2020",
+    tags: ["Branding", "Design"],
+    comments: "3 Comments",
+    brief:
+      "Whether an identity or campaign, we make your brand visible, relevant and effective by placing the digital at the center of its ecosystem, without underestimating the power of traditional media. Whether an identity or campaign, we make your brand visible.",
+  },
+];
+
+export const blogCategories = [
+  { id: 1, title: "Journey", href: "#", total: 40 },
+  { id: 2, title: "Photography", href: "#", total: 8 },
+  { id: 3, title: "Lifestyle", href: "#", total: 11 },
+  { id: 4, title: "Food & Drinks", href: "#", total: 21 },
+];
+
+export const popularBlogs = [
+  {
+    id: 1,
+    img: "images/works/img10.jpg",
+    title: "Beautiful Day With Friends..",
+    href: "#",
+    blog_date: "Feb 15, 2020",
+  },
+  {
+    id: 2,
+    img: "images/works/img2.jpg",
+    title: "Nature valley with cooling..",
+    href: "#",
+    blog_date: "Feb 10, 2020",
+  },
+  {
+    id: 3,
+    img: "images/works/img3.jpg",
+    title: "15 Best Healthy and Easy Salad..",
+    href: "#",
+    blog_date: "Feb 8, 2020",
+  },
+];
+
+export const blogTextWidget = {
+  title: "Text Widget",
+  subtitle:
+    "Exercitation photo booth stumptown tote bag Banksy, elit small batch freegan sed. Craft beer elit seitan exercitation, photo booth et 8-bit kale chips proident chillwave deep v laborum. Aliquip veniam delectus, Marfa eiusmod Pinterest in do umami readymade swag.",
+};
+
+export const blogArchives = [
+  { id: 1, title: "March 2020", href: "#", total: 40 },
+  { id: 2, title: "April 2020", href: "#", total: 8 },
+  { id: 3, title: "May 2020", href: "#", total: 11 },
+  { id: 4, title: "Feb 2020", href: "#", total: 21 },
+];
+
+export const blogTags = [
+  { id: 1, title: "logo", href: "#" },
+  { id: 2, title: "business", href: "#" },
+  { id: 3, title: "corporate", href: "#" },
+  { id: 4, title: "e-commerce", href: "#" },
+  { id: 5, title: "agency", href: "#" },
+  { id: 6, title: "responsive", href: "#" },
+];
