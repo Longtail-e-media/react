@@ -4,6 +4,9 @@ import Socialmedia from './Socialmedia';
 import { company } from '../data/data';
 
 const Footer = () => {
+  const date = new Date();
+  const year = date.getFullYear();
+
   return (
     
     <footer className="border-t pb-8 text-sm">
@@ -11,13 +14,13 @@ const Footer = () => {
       <div className="w-1/4 flex flex-col leading-7">
         <strong className="text-lg mb-6">Office Address</strong>
         <div className="mb-4 flex flex-col text-sm">
-          <span>Head office:</span>
-          <strong>2118 Thornridge Cir. Syracuse, Connecticut 35624</strong>
+          <span>Address</span>
+          <strong>{company.address}</strong>
         </div>
         <div className="mb-4 flex flex-col text-sm">
           <span>Branch:</span>
           <span className="mb-3">
-            3891 Ranchview Dr. Richardson, California 62639 3517{" "}
+            {company.cityoffice}
           </span>
           <span>W. Gray St. Utica, Pennsylvania 57867</span>
         </div>
@@ -27,13 +30,7 @@ const Footer = () => {
           <strong className="text-lg ">Contact Seller</strong>
         </div>
 
-        <div className="item flex items-center text-sm pb-8">
-          <div className="profileimg bg-gray-400 rounded-full w-16 h-16"></div>
-          <div className="content flex flex-col ms-4">
-            <span>Darrell Steward</span>
-            <strong>(405) 555-0128 </strong>
-          </div>
-        </div>
+       
 
         <div className="item flex items-center text-sm pb-8">
           <div className="">
@@ -41,7 +38,7 @@ const Footer = () => {
           </div>
           <div className="content flex flex-col ms-4">
             <span>Darrell Steward</span>
-            <strong>(405) 555-0128 </strong>
+            <strong>{company.phone} </strong>
           </div>
         </div>
 
@@ -51,7 +48,7 @@ const Footer = () => {
           </div>
           <div className="content flex flex-col ms-4">
             <span>Email:</span>
-            <span>Realestatecp@gmail.com</span>
+            <span>{company.email}</span>
           </div>
         </div>
       </div>
@@ -93,7 +90,7 @@ const Footer = () => {
     <div className="pt-8">
       <div className="container mx-auto w-2/3 ">
         <div className="copyright text-center">
-          Copyright &copy; 2024 Real estate CP. Designed & Developed by
+          Copyright &copy; {year} Real estate CP. Designed & Developed by
           Themesflat
         </div>
       </div>

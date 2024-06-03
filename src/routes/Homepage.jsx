@@ -4,14 +4,46 @@ import Layout from "./Layout";
 import { properties, locations } from "../data/data";
 import Carousel from "../components/Carousel";
 import RealState from "../components/RealState";
+import { IoLogOut } from "react-icons/io5";
+import PropertyItem from "../components/PropertyItem";
 
 const Homepage = () => {
+  const tabs = [
+    "House",
+    "Office",
+    "Smart home",
+    "Apartment",
+    "Villa",
+    "Banglow",
+  ];
+
   const [newProperties, setNewProperties] = useState(() => {
-    return properties.filter((property) => property.type === "new");
+
+    return properties.filter((property) => {
+      const typeArray = property.type;
+      return typeArray && typeArray.includes("new");
+    });
   });
 
+  // console.log(newProperties);
+  const showTab = (e) =>{
+    setNewProperties(
+      (prevProperties) => {
+        console.log(prevProperties);
+        return prevProperties.filter((property) => {
+          const typeArray = property.type;
+          const cat = property.category;
+          return (cat && typeArray) && (typeArray.includes("new") && cat.includes(e));
+        }
+    )});
+  }
+
   const [pSales, setPsales] = useState(() => {
-    return properties.filter((property) => property.type === "sale");
+    return properties.filter((property) => {
+      const typeArray = property.type;
+      return typeArray && typeArray.includes("sale") && "sale";
+    });
+    //return properties.filter((property) => property.type === "sale");
   });
 
   const [nearBys, setNearBys] = useState(() => {
@@ -34,24 +66,15 @@ const Homepage = () => {
         </div>
         <div className="carousel ">
           <div className="tablist flex gap-2 justify-center pb-8">
-            <button className="round p-2 shadow-2xl rounded-lg border px-4">
-              Houses
-            </button>
-            <button className="round p-2 shadow-2xl rounded-lg border px-4">
-              Smart home
-            </button>
-            <button className="round p-2 shadow-2xl rounded-lg border px-4">
-              Apartments
-            </button>
-            <button className="round p-2 shadow-2xl rounded-lg border px-4">
-              Office
-            </button>
-            <button className="round p-2 shadow-2xl rounded-lg border px-4">
-              Villa
-            </button>
-            <button className="round p-2 shadow-2xl rounded-lg border px-4">
-              Bungalow
-            </button>
+            {tabs.map((item, index) => (
+              <button
+                key={index}
+                onClick={()=>showTab(item)}
+                className="round p-2 shadow-2xl rounded-lg border px-4"
+              >
+                {item}
+              </button>
+            ))}
           </div>
           <Carousel layout="one" items={newProperties} limit={5} />
         </div>
@@ -69,11 +92,7 @@ const Homepage = () => {
               </p>
             </div>
           </div>
-          <Carousel
-            layout="two"
-            items={locations}
-            limit={3}
-          />
+          <Carousel layout="two" items={locations} limit={3} />
         </div>
       </div>
 
@@ -116,46 +135,8 @@ const Homepage = () => {
         <div className="carousel">
           <div className="container mx-auto w-2/3">
             <div className="list_content flex gap-4 justify-between">
-              {pSales.map(
-                (pSale, index) =>
-                  index <= 3 && (
-                    <div
-                      key={index}
-                      className="item shadow-lg rounded-lg p-5 w-1/3"
-                    >
-                      <div className="imgCover w-100 bg-green-300 h-56 rounded-lg mb-4 overflow-hidden">
-                        <img
-                          src={pSale.img}
-                          alt=""
-                          className="object-cover h-full w-full"
-                        />
-                      </div>
-                      <h3 className="text-lg font-bold">{pSale.name}</h3>
-                      <p className="text-xs ">{pSale.address}</p>
-                      <div className="py-3 text-2xl font-bold text-yellow-500">
-                        {pSale.price}
-                      </div>
-                      <div className="amenities flex gap-2 border-b pb-3">
-                        <div className="item">
-                          Beds: <strong>{pSale.beds}</strong>
-                        </div>
-                        <div className="item">
-                          Baths: <strong>{pSale.baths}</strong>
-                        </div>
-                        <div className="item">
-                          Sqft: <strong>{pSale.area}</strong>
-                        </div>
-                      </div>
-                      <div className="lowerbtns flex justify-between pt-3">
-                        <div className="item">
-                          + <strong>Compare</strong>
-                        </div>
-                        <div className="item"></div>
-                        <div className="item">3 years ago</div>
-                      </div>
-                    </div>
-                  )
-              )}
+              <PropertyItem properties={pSales} limit={3} />
+             
             </div>
           </div>
         </div>

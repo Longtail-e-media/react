@@ -3,7 +3,8 @@ import Headerhome from "../components/Headerhome";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
-const Layout = ({ children }) => {
+const Layout = ({ children}) => {
+ 
   return (
     <div>
       {location.pathname === "/home" ? <Headerhome /> : <Header />}

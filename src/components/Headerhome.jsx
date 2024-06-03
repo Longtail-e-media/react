@@ -1,12 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import Navigation from "./Navigation";
 import Socialmedia from "./Socialmedia";
-import {company} from "../data/data";
-
+import { company } from "../data/data";
+import { Link, useNavigate } from "react-router-dom";
 
 const Headerhome = () => {
+  const [search, setSearch] = useState("");
+  const navigate = useNavigate();
+  const searchFn = (e) => {
+    //return navigate(`/search/${e.target.value}`);
+    return setSearch(e.target.value);
+  };
+  const searchKeyDown = (e) =>{
+    if(e.key === "Enter"){
+      return navigate(`/search/${search}`);
+    }
+  }
+
   return (
-    <header className=" bg-white">
+    <header className=" bg-white">  
       <div className="head flex justify-between items-center 2xl:container py-2 mx-auto">
         <div className="call flex items-center">
           <img src="src/assets/call.png" width="50" alt="call" />
@@ -37,12 +49,15 @@ const Headerhome = () => {
             <Navigation />
 
             <div className="rightCol flex gap-10 text-white">
-             <Socialmedia />
+              <Socialmedia />
               <input
                 type="text"
                 name="search"
                 id="search"
-                value="Search"
+                value={search}
+                placeholder="Search"
+                onChange={(e) => searchFn(e)}
+                onKeyDown={searchKeyDown}
                 className=" rounded-lg px-4 py-3 bg-white bg-opacity-20 text-white"
               />
             </div>

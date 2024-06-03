@@ -16,11 +16,11 @@ const Header = () => {
 
           <div className="right flex gap-3 items-center">
             <div className="btn btn1 flex">
-              <img src="src/assets/userkey.png" alt="user" />
+              <img src="/src/assets/userkey.png" alt="user" />
               Register / Login
             </div>
             <div className="btn btn2 flex rounded bg-orange-400 text-white px-4 py-2 gap-3">
-              <img src="src/assets/home.png" alt="user" />
+              <img src="/src/assets/home.png" alt="user" />
               Sell Property
             </div>
           </div>
