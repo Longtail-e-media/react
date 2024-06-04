@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Icofont from "react-icofont";
 import { Link, NavLink } from "react-router-dom";
 import { navLinks } from "../constants/data";
@@ -9,13 +9,44 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  // getting logo from backend
+  const [imgData, setImgData] = useState("/deer-head.svg");
+  useEffect(() => {
+    fetch("http://localhost/react/backend/api/siteRegulars.php?logo=1")
+      .then((response) => response.json())
+      .then((data) => {
+        setImgData(data);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }, []);
+
+  // getting menu from backend
+  const [navLinks, setnavLinks] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost/react/backend/api/menu.php")
+      .then((response) => response.text())
+      .then((data) => {
+        setnavLinks(JSON.parse(data));
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }, []);
+  console.log(typeof navLinks);
+
   return (
     <>
       <div className="flex flex-col">
         <nav id="nav" className="py-8 md:border-b-0 border-b" role="navigation">
           <div className="container flex flex-wrap items-center md:flex-no-wrap">
-            <Link to="/" className="flex">
+            {/* <Link to="/" className="flex">
               <i className="icofont-deer-head text-black text-[42px]"></i>
+            </Link> */}
+
+            <Link to="/" className="flex">
+              <img src={imgData} className="w-12" />
             </Link>
 
             <div className="ml-auto md:hidden">
