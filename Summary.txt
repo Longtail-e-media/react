@@ -1,0 +1,206 @@
+Swarna
+
+- NavLink
+- i - 1.. comma hatauna sikyo last child ko 
+- Fiter => Work Gallery.jsx
+- key id vs index
+- form validation (useState, useEffect, 
+
+on dynamic
+( fetchAPI, axios )
+
+- ... (spread operator)
+
+- limit .. same api but different limit for home and main page.
+
+- nested map
+
+
+Rujal 
+
+- Router, App Router, 
+- Naming Convention
+- File path
+- json demerit
+
+Sam
+
+- 
+- 
+
+Bijan
+
+- Layout Wrapper => Wrapping Navbar/Footer/Resuable (Replacement of App router)
+- type: props => pass if type1 : type1
+- slider/pagination => !NO_width_SIze !YEs: item comparison
+- 
+
+
+
+
+Complete
+
+- Use Link / must
+- Complete static then > integration > dynamic
+- you may use either json or js(javascript array object) or ts(typescript)
+- Follow Reusability
+
+
+
+Swarna Dai 
+- form validation
+- api integration
+
+Enhance:
+
+- react icons... img .. typeof ... ? : 
+
+
+LiaBathSolid
+
+LuBath
+
+
+
+### Final Day
+
+
+Sam 
+
+- Naming Convention
+
+
+
+Swarna 
+
+- New Set ()
+- ...
+- no nested a / i
+- type == function .. object. mapping
+- limit as per page 
+- dangeriousllySetInnerHTML
+- Sanitizer
+
+Bijan 
+
+- Dynamic Routing
+- Object Destructuring
+
+
+
+### FOR ICON and IMAGE case
+
+
+import React from "react";
+import {
+  FaWifi,
+  FaTv,
+  FaBed,
+  FaBath,
+  FaCoffee,
+  FaUtensils,
+  FaAirFreshener,
+} from "react-icons/fa";
+import { MdTableRestaurant } from "react-icons/md";
+import { GiSlippers, GiTowel } from "react-icons/gi";
+import { TbDeviceLandlinePhone } from "react-icons/tb";
+
+const Test = () => {
+  const roomIcons = [
+    { icon: FaWifi, title: "Free Wi-Fi" },
+    { icon: FaTv, title: "Flat-screen TV" },
+    { icon: FaBed, title: "Comfortable Bed" },
+    { icon: FaBath, title: "Private Bathroom" },
+    { icon: MdTableRestaurant, title: "Furniture" },
+    { icon: FaUtensils, title: "Dining Area" },
+    { icon: FaAirFreshener, title: "Air Conditioning" },
+    { icon: FaCoffee, title: "Coffee Maker" },
+    { icon: GiSlippers, title: "Slippers" },
+    { icon: TbDeviceLandlinePhone, title: "Telephone" },
+    { icon: GiTowel, title: "Towel Service" },
+  ];
+  return (
+    <>
+      <div>
+        {roomIcons.map((amenity, index) => (
+          <div key={index}>
+            {typeof amenity.icon === "function" ? (
+              <amenity.icon />
+            ) : (
+              <img src={amenity.icon} alt="icon" />
+            )}
+            <p>{amenity.title}</p>
+          </div>
+        ))}
+      </div>
+    </>
+  );
+};
+
+export default Test;
+
+
+import React from "react";
+import {
+  FaWifi,
+  FaTv,
+  FaBed,
+  FaBath,
+  FaCoffee,
+  FaUtensils,
+  FaAirFreshener,
+} from "react-icons/fa";
+import { MdTableRestaurant } from "react-icons/md";
+import { GiSlippers, GiTowel } from "react-icons/gi";
+import { TbDeviceLandlinePhone } from "react-icons/tb";
+
+const Test = () => {
+  const roomIcons = [
+    { icon: FaWifi, title: "Free Wi-Fi" },
+    { icon: FaTv, title: "Flat-screen TV" },
+    { icon: FaBed, title: "Comfortable Bed" },
+    { icon: FaBath, title: "Private Bathroom" },
+    { icon: MdTableRestaurant, title: "Furniture" },
+    { icon: FaUtensils, title: "Dining Area" },
+    { icon: FaAirFreshener, title: "Air Conditioning" },
+    { icon: FaCoffee, title: "Coffee Maker" },
+    { icon: GiSlippers, title: "Slippers" },
+    { icon: TbDeviceLandlinePhone, title: "Telephone" },
+    { icon: GiTowel, title: "Towel Service" },
+  ];
+  return (
+    <>
+      {Object.entries(roomIcons).map(([key, { icon: Icon, title }]) => (
+        <div key={key}>
+          <ul>
+            <li>
+              <Icon />
+              {title}
+            </li>
+          </ul>
+        </div>
+      ))}
+    </>
+  );
+};
+
+export default Test;
+
+
+
+
+
+   {Object.values(roomIcons).map((amenity, index) => (
+        <div
+          key={index}
+        >
+          {typeof amenity.icon === "function" ? (
+            <amenity.icon />
+          ) : (
+            <img
+              src={amenity.icon}
+              alt={amenity.title}
+            />
+          )}
+        </div>
+      ))}
