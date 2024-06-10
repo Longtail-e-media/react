@@ -1,9 +1,44 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { author, siteName, socialLinks } from "../constants/data";
 
 const Footer = () => {
   const year = new Date().getFullYear();
+
+  // getting logo from backend
+  const [siteRegulars, setSiteRegulars] = useState("/deer-head.svg");
+  useEffect(() => {
+    fetch("http://localhost/react/backend/api/siteRegulars.php")
+      .then((response) => response.json())
+      .then((data) => {
+        setSiteRegulars(data);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }, []);
+
+  // getting menu from backend
+  const [socialLinks, setSocialLinks] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost/react/backend/api/social.php")
+      .then((response) => response.text())
+      .then((data) => {
+        try {
+          const safeData = (code) => {
+            const func = new Function(code + "return socialList;");
+            return func();
+          };
+          const menuList = safeData(data);
+          setSocialLinks(menuList);
+        } catch (error) {
+          console.error(error);
+        }
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }, []);
 
   return (
     <>
@@ -12,10 +47,19 @@ const Footer = () => {
           <div className="flex">
             <div className="w-full">
               <div className="text-center">
-                <Link className="text-6xl text-black" href="/home">
+                {/* <Link className="text-6xl text-black" href="/home">
                   <i className="icofont-deer-head"></i>
+                </Link> */}
+
+                <Link
+                  to="/home"
+                  className="text-6xl text-black flex justify-center"
+                >
+                  <img src={siteRegulars.logo} className="w-16" />
                 </Link>
-                <h4 className="font-bold text-lg mt-2 uppercase">{siteName}</h4>
+                <h4 className="font-bold text-lg mt-2 uppercase">
+                  {siteRegulars.siteName}
+                </h4>
 
                 <ul className="flex justify-center mt-8 gap-3">
                   {socialLinks.map((item) => (
@@ -32,7 +76,7 @@ const Footer = () => {
                 </ul>
 
                 <p className="text-muted mt-8">
-                  © {year} {siteName}. By {author}
+                  © {year} {siteRegulars.siteName}. By {siteRegulars.author}
                 </p>
               </div>
             </div>

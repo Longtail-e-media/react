@@ -22,6 +22,7 @@ if ($request_method == 'GET') {
     $data = [
         "siteName"      => $siteRegular->sitename,
         "author"        => "SMS",
+        "logo"          => BASE_URL . 'images/preference/' . $siteRegular->logo_upload,
         "emailAddress"  => $siteRegular->email_address,
         "telephone"     => $siteRegular->contact_info,
         "address"       => $siteRegular->fiscal_address

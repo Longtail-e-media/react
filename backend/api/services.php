@@ -9,17 +9,21 @@ $request_method = $_SERVER['REQUEST_METHOD'];
 if ($request_method == 'GET') {
     http_response_code(500);
 
-    $type   = (isset($_REQUEST["type"]) and !empty($_REQUEST["type"])) ? $_REQUEST["type"] : 1;
-
     $data = [];
-    $menus = Menu::getMenuByParent(0, $type);
-    if (!empty($menus)) {
-        foreach ($menus as $menuRec) {
-            $data[] = ["id" => $menuRec->id, "title" => $menuRec->name, "link" => $menuRec->linksrc];
+    $services = Services::getservice_list();
+    if (!empty($services)) {
+        foreach ($services as $serviceRec) {
+            $data[] = [
+                "id"            => $serviceRec->id,
+                "title"         => $serviceRec->title,
+                "icon_library"  => $serviceRec->sub_title,
+                "icon"          => $serviceRec->icon,
+                "content"       => strip_tags($serviceRec->content)
+            ];
         }
     }
     http_response_code(200);
-    echo "var menuList = " . json_encode($data) . ";";
+    echo "var serviceDetails = " . json_encode($data) . ";";
 } else {
     http_response_code(405);
     echo json_encode(array("action" => "error", "message" => "Method not allowed."));

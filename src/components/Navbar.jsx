@@ -28,13 +28,21 @@ const Navbar = () => {
     fetch("http://localhost/react/backend/api/menu.php")
       .then((response) => response.text())
       .then((data) => {
-        setnavLinks(JSON.parse(data));
+        try {
+          const safeData = (code) => {
+            const func = new Function(code + "return menuList;");
+            return func();
+          };
+          const menuList = safeData(data);
+          setnavLinks(menuList);
+        } catch (error) {
+          console.error(error);
+        }
       })
       .catch((err) => {
         console.log(err.message);
       });
   }, []);
-  console.log(typeof navLinks);
 
   return (
     <>
@@ -76,7 +84,7 @@ const Navbar = () => {
                           ? "lg:px-6 font-medium font-secondary block  p-3 uppercase text-sm text-blue-500"
                           : "lg:px-6 font-medium font-secondary block  p-3 uppercase text-sm text-black/70 hover:text-blue-500"
                       }
-                      to={item.link}
+                      to={`/${item.link}`}
                       title={item.title}
                     >
                       {item.title}

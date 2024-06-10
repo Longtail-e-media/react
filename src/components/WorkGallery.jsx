@@ -1,8 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { workImages } from "../constants/data";
 
 const WorkGallery = ({ images }) => {
   const [activeCategory, setActiveCategory] = useState("All");
+  
+  // getting gallery from backend
+  const [workImages, setWorkImages] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost/react/backend/api/gallery.php")
+      .then((response) => response.text())
+      .then((data) => {
+        try {
+          const safeData = (code) => {
+            const func = new Function(code + "return galleryDetails ;");
+            return func();
+          };
+          const actualData = safeData(data);
+          setWorkImages(actualData);
+        } catch (error) {
+          console.error(error);
+        }
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }, []);
 
   const filteredImages =
     activeCategory === "All"
