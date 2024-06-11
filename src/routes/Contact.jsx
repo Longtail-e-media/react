@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ClientBlock from "../components/ClientBlock";
@@ -12,12 +12,48 @@ import {
 import { Link } from "react-router-dom";
 
 const Contact = () => {
+  // getting workcontent from backend
+  const [contactContent, setContactContent] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost/react/backend/api/article.php?id=4")
+      .then((response) => response.text())
+      .then((data) => {
+        try {
+          const safeData = (code) => {
+            const func = new Function(code + "return articleDetail ;");
+            return func();
+          };
+          const actualData = safeData(data);
+          setContactContent(actualData);
+        } catch (error) {
+          console.error(error);
+        }
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }, []);
+
+  // getting logo from backend
+  const [siteRegulars, setSiteRegulars] = useState("/deer-head.svg");
+  useEffect(() => {
+    fetch("http://localhost/react/backend/api/siteRegulars.php")
+      .then((response) => response.json())
+      .then((data) => {
+        setSiteRegulars(data);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }, []);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     subject: "",
     message: "",
   });
+
   const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
@@ -90,10 +126,10 @@ const Contact = () => {
                   <h1 className=" text-base font-medium mb-2">Email Address</h1>
                   <Link
                     className="text-gray-400 text-sm font-medium"
-                    to={`mailto:${emailAddress}`}
+                    to={`mailto:${siteRegulars.emailAddress}`}
                     target="_blank"
                   >
-                    {emailAddress}
+                    {siteRegulars.emailAddress}
                   </Link>
                 </div>
 
@@ -101,16 +137,16 @@ const Contact = () => {
                   <h1 className=" text-base font-medium mb-2">Telephone</h1>
                   <Link
                     className="text-gray-400 text-sm font-medium"
-                    to={`tel:${telephone}`}
+                    to={`tel:${siteRegulars.telephone}`}
                     target="_blank"
                   >
-                    {telephone}
+                    {siteRegulars.telephone}
                   </Link>
                 </div>
 
                 <div className="mb-6">
                   <h1 className=" text-base font-medium mb-2">Address</h1>
-                  <h1 className="text-gray-400 text-sm">{address}</h1>
+                  <h1 className="text-gray-400 text-sm">{siteRegulars.address}</h1>
                 </div>
               </div>
             </div>
@@ -191,7 +227,7 @@ const Contact = () => {
       <section className="section py-16">
         <div className="container">
           <div className="grid lg:grid-cols-4 gap-10">
-            <ClientBlock clients={clients} />
+            <ClientBlock />
           </div>
         </div>
       </section>

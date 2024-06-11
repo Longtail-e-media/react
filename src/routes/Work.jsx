@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
@@ -6,6 +6,28 @@ import WorkGallery from "../components/WorkGallery";
 import { workContent } from "../constants/data";
 
 const Work = () => {
+  // getting workcontent from backend
+  const [workContent, setWorkContent] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost/react/backend/api/article.php?id=3")
+      .then((response) => response.text())
+      .then((data) => {
+        try {
+          const safeData = (code) => {
+            const func = new Function(code + "return articleDetail ;");
+            return func();
+          };
+          const actualData = safeData(data);
+          setWorkContent(actualData);
+        } catch (error) {
+          console.error(error);
+        }
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }, []);
+
   return (
     <>
       <Navbar />

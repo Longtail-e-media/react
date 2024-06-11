@@ -26,7 +26,7 @@ const Service = () => {
       <section className="section py-10">
         <div className="container">
           <div className="grid lg:grid-cols-3 gap-8">
-            <ServiceBlock services={services} />
+            <ServiceBlock />
           </div>
         </div>
       </section>
@@ -41,7 +41,7 @@ const Service = () => {
             </div>
           </div>
           <div className="grid lg:grid-cols-4 gap-10 mt-16">
-            <ClientBlock clients={clients} />
+            <ClientBlock />
           </div>
         </div>
       </section>

@@ -19,7 +19,8 @@ if ($request_method == 'GET') {
                 "id"    => $social->id,
                 "title" => $social->title,
                 "link"  => $social->linksrc,
-                "class" => $social->icon
+                "class" => $social->icon,
+                "img"   => IMAGE_PATH.'social/'.$social->image
             ];
         }
     }

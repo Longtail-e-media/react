@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 03, 2024 at 07:18 PM
+-- Generation Time: Jun 11, 2024 at 07:19 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.3.27
 
@@ -69,6 +69,16 @@ CREATE TABLE `tbl_articles` (
   `date` varchar(100) NOT NULL,
   `category` varchar(50) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tbl_articles`
+--
+
+INSERT INTO `tbl_articles` (`id`, `parent_id`, `slug`, `title`, `sub_title`, `content`, `linktype`, `linksrc`, `status`, `meta_title`, `meta_keywords`, `meta_description`, `type`, `added_date`, `modified_date`, `sortorder`, `homepage`, `image`, `date`, `category`) VALUES
+(1, 0, 'buckzo-is-one-of-best-web-design-development-company', 'Buckzo Is One Of Best Web Design & Development Company', 'We create digital assets and we\'re focused on Web Technologies and Design, based on London, United Kingdom. We build creative & professional themes.', '<p>\r\n	A digital studio crafting <span class=\"border-b-[3px] border-black\">beautiful</span> experiences.</p>\r\n', 0, '', 1, '', '', '', 0, '2024-06-10 22:15:00', '2024-06-11 21:29:04', 1, 0, 0x613a313a7b693a303b733a31323a227443534e332d62672e6a7067223b7d, '', ''),
+(2, 0, 'we-provide-a-absolute-list-of-superior-digital-services', 'We provide a absolute list of Superior digital services.', 'We create digital assets and we\'re focused on Web Technologies and Design, based on London, United Kingdom. We build creative & professional themes.', '', 0, '', 1, '', '', '', 0, '2024-06-11 22:40:52', '2024-06-11 22:43:11', 2, 0, 0x613a303a7b7d, '', ''),
+(3, 0, 'see-our-works', 'See our Works', 'We create digital assets and we\'re focused on Web Technologies and Design, based on London, United Kingdom. We build creative & professional themes.', '', 0, '', 1, '', '', '', 0, '2024-06-11 22:52:13', '2024-06-11 22:53:48', 3, 0, 0x613a303a7b7d, '', ''),
+(4, 0, 'lets-keep-in-touch', 'Lets keep in touch.', 'Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Proin gravida nibh vel velit auctor Aenean sollicitudin, adipisicing elit sed lorem quis bibendum auctor.', '', 0, '', 1, '', '', '', 0, '2024-06-11 22:55:04', '2024-06-11 22:55:04', 4, 0, 0x613a303a7b7d, '', '');
 
 -- --------------------------------------------------------
 
@@ -187,7 +197,7 @@ CREATE TABLE `tbl_configs` (
 --
 
 INSERT INTO `tbl_configs` (`id`, `sitetitle`, `icon_upload`, `logo_upload`, `fb_upload`, `twitter_upload`, `gallery_upload`, `contact_upload`, `other_upload`, `facility_upload`, `offer_upload`, `sitename`, `location_type`, `location_map`, `location_image`, `fiscal_address`, `mail_address`, `contact_info`, `address`, `email_address`, `breif`, `copyright`, `meta_title`, `site_keywords`, `site_description`, `fb_messenger`, `google_anlytics`, `linksrc`, `robot_txt`, `schema_code`, `book_type`, `hotel_page`, `hotel_code`, `booking_code`, `template`, `admin_template`, `headers`, `footer`, `search_box`, `search_result`, `action`, `contact_info2`, `pobox`, `pixel_code`, `whatsapp`, `whatsapp_a`) VALUES
-(1, 'Synhawk 3.0', 'SOwpH-icon.png', 'KHS9S-logo-white.png', '', '', 'BPewc-slide-img2.jpg', 'diHTB-1920x512_bg7.jpg', 'WYAjl-1920x512_bg7.jpg', 'aTE34-facilities.jpg', '', 'Synhawk 3.0', 1, 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14128.071612788246!2d85.5202536!3d27.7167335!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb0681e69f4d5f%3A0xd75300924c37f8c7!2sClub%20Himalaya%20by%20ACE%20Hotels!5e0!3m2!1sen!2snp!4v1693730469588!5m2!1sen!2snp', 'aHQyy-map.jpg', 'location', 'ktm location', '+977-01-6680080/01-6680083/01-6680046', '+1 800 889 9898', 'email@email.com', '', '© Copyright {year}. All Rights Reserved.', 'Synhawk3.0', 'Synhawk3.0', 'Synhawk3.0', '', '', '#', 'User-agent: *\r\nDisallow: /cgi-bin/', '', 2, 'result.php', 'LmpYUF', 'LmpYUF', 'web', 'blue', '', '', 'Develop By Amit prajapati', 'Develop By Amit prajapati', 0, 'email@email.com', '2769', '', '987568562222', '');
+(1, 'Synhawk 3.0', 'SOwpH-icon.png', 'GKNKh-deer-head.svg', '', '', 'BPewc-slide-img2.jpg', 'diHTB-1920x512_bg7.jpg', 'WYAjl-1920x512_bg7.jpg', 'aTE34-facilities.jpg', '', 'Buckzo', 1, 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14128.071612788246!2d85.5202536!3d27.7167335!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb0681e69f4d5f%3A0xd75300924c37f8c7!2sClub%20Himalaya%20by%20ACE%20Hotels!5e0!3m2!1sen!2snp!4v1693730469588!5m2!1sen!2snp', 'aHQyy-map.jpg', 'location', 'ktm location', '+977-01-6680080/01-6680083/01-6680046', '+1 800 889 9898', 'email@email.com', '', '© Copyright {year}. All Rights Reserved.', 'Synhawk3.0', 'Synhawk3.0', 'Synhawk3.0', '', '', '#', 'User-agent: *\r\nDisallow: /cgi-bin/', '', 2, 'result.php', 'LmpYUF', 'LmpYUF', 'web', 'blue', '', '', 'Develop By Amit prajapati', 'Develop By Amit prajapati', 0, 'email@email.com', '2769', '', '987568562222', '');
 
 -- --------------------------------------------------------
 
@@ -537,6 +547,16 @@ CREATE TABLE `tbl_galleries` (
   `type` int(1) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `tbl_galleries`
+--
+
+INSERT INTO `tbl_galleries` (`id`, `slug`, `title`, `image`, `detail`, `status`, `sortorder`, `registered`, `type`) VALUES
+(1, 'mockup', 'Mockup', '9luNJ-img12.jpg', '', 1, 3, '2024-06-10 22:27:20', 1),
+(2, 'android', 'Android', 'U5jaU-img12.jpg', '', 1, 2, '2024-06-10 22:27:34', 1),
+(3, 'web', 'Web', 'xLgnE-img12.jpg', '', 1, 1, '2024-06-10 22:27:43', 1),
+(4, 'design', 'Design', 'ORZLf-img12.jpg', '', 1, 0, '2024-06-10 22:27:51', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -553,6 +573,25 @@ CREATE TABLE `tbl_gallery_images` (
   `sortorder` int(11) NOT NULL,
   `registered` varchar(50) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tbl_gallery_images`
+--
+
+INSERT INTO `tbl_gallery_images` (`id`, `galleryid`, `title`, `image`, `status`, `detail`, `sortorder`, `registered`) VALUES
+(1, 1, 'Open Imagination', 'X0b8S-img1.jpg', 1, '', 1, '2024-06-10 22:30:24'),
+(2, 1, 'Mac Sunglasses', 'DRqdY-img7.jpg', 1, '', 2, '2024-06-10 22:30:24'),
+(3, 1, 'Shake It!', 'bhI4s-img12.jpg', 1, '', 3, '2024-06-10 22:30:24'),
+(4, 1, 'Shake It!', '4b3s6-img3.jpg', 1, '', 4, '2024-06-10 22:30:24'),
+(5, 2, 'Locked Steel Gate', 'fcrSP-img4.jpg', 1, '', 1, '2024-06-10 22:31:03'),
+(6, 2, 'Sunset Bulb Glow', 'w3nS8-img5.jpg', 1, '', 2, '2024-06-10 22:31:03'),
+(7, 2, 'Console Activity', 'VYGSb-img11.jpg', 1, '', 3, '2024-06-10 22:31:03'),
+(8, 2, 'Sunset Bulb Glow', 'JbV96-img2.jpg', 1, '', 4, '2024-06-10 22:31:03'),
+(9, 3, 'Morning Dew', 'xr2Kr-img6.jpg', 1, '', 1, '2024-06-10 22:31:32'),
+(10, 3, 'Console Activity', 'j4xYJ-img9.jpg', 1, '', 2, '2024-06-10 22:31:32'),
+(11, 3, 'Sunset Bulb Glow', 'qF5SG-img10.jpg', 1, '', 3, '2024-06-10 22:31:32'),
+(12, 4, 'Console Activity', 'jJdhF-img8.jpg', 1, '', 1, '2024-06-10 22:31:54'),
+(13, 4, 'Shake It!', 'U3ZDn-img13.jpg', 1, '', 2, '2024-06-10 22:31:54');
 
 -- --------------------------------------------------------
 
@@ -575,7 +614,7 @@ CREATE TABLE `tbl_group_type` (
 --
 
 INSERT INTO `tbl_group_type` (`id`, `group_name`, `group_type`, `authority`, `description`, `status`, `permission`) VALUES
-(1, 'Administrator', '1', 1, '', 1, 'a:26:{i:0;s:2:\"74\";i:1;s:3:\"306\";i:2;s:1:\"1\";i:3;s:1:\"2\";i:4;s:1:\"3\";i:5;s:1:\"4\";i:6;s:2:\"25\";i:7;s:2:\"23\";i:8;s:2:\"24\";i:9;s:2:\"20\";i:10;s:1:\"5\";i:11;s:2:\"11\";i:12;s:2:\"17\";i:13;s:3:\"303\";i:14;s:3:\"302\";i:15;s:3:\"309\";i:16;s:2:\"27\";i:17;s:3:\"300\";i:18;s:3:\"301\";i:19;s:2:\"19\";i:20;s:2:\"28\";i:21;s:2:\"12\";i:22;s:2:\"16\";i:23;s:2:\"15\";i:24;s:2:\"14\";i:25;s:2:\"13\";}'),
+(1, 'Administrator', '1', 1, '', 1, 'a:22:{i:0;s:2:\"74\";i:1;s:3:\"306\";i:2;s:1:\"1\";i:3;s:1:\"2\";i:4;s:1:\"3\";i:5;s:1:\"4\";i:6;s:2:\"25\";i:7;s:2:\"23\";i:8;s:2:\"24\";i:9;s:2:\"20\";i:10;s:1:\"5\";i:11;s:2:\"11\";i:12;s:2:\"17\";i:13;s:3:\"309\";i:14;s:2:\"27\";i:15;s:3:\"310\";i:16;s:2:\"28\";i:17;s:2:\"12\";i:18;s:2:\"16\";i:19;s:2:\"15\";i:20;s:2:\"14\";i:21;s:2:\"13\";}'),
 (2, 'General Admin', '1', 1, '', 1, 'a:22:{i:0;s:2:\"74\";i:1;s:1:\"1\";i:2;s:1:\"2\";i:3;s:1:\"3\";i:4;s:2:\"25\";i:5;s:2:\"23\";i:6;s:2:\"24\";i:7;s:1:\"4\";i:8;s:3:\"302\";i:9;s:3:\"303\";i:10;s:1:\"5\";i:11;s:2:\"27\";i:12;s:3:\"300\";i:13;s:3:\"301\";i:14;s:2:\"11\";i:15;s:2:\"17\";i:16;s:2:\"20\";i:17;s:2:\"19\";i:18;s:2:\"28\";i:19;s:2:\"12\";i:20;s:2:\"14\";i:21;s:2:\"13\";}');
 
 -- --------------------------------------------------------
@@ -598,7 +637,7 @@ CREATE TABLE `tbl_logs` (
 --
 
 INSERT INTO `tbl_logs` (`id`, `action`, `registered`, `userid`, `user_action`, `ip_track`) VALUES
-(1, 'Log has been cleared.', '2024-06-03 22:52:00', 1, 6, '::1');
+(1, 'Log has been cleared.', '2024-06-11 23:04:33', 1, 6, '::1');
 
 -- --------------------------------------------------------
 
@@ -657,6 +696,32 @@ CREATE TABLE `tbl_mainservices` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_member`
+--
+
+CREATE TABLE `tbl_member` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `position` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `status` int(1) NOT NULL,
+  `sortorder` int(11) NOT NULL,
+  `added_date` varchar(50) NOT NULL,
+  `modified_date` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_member`
+--
+
+INSERT INTO `tbl_member` (`id`, `name`, `position`, `image`, `status`, `sortorder`, `added_date`, `modified_date`) VALUES
+(1, 'Johan De Jager', 'CEO/Founder', 'LHuy5-team-1.jpg', 1, 2, '2024-06-11 22:31:53', '2024-06-11 22:31:53'),
+(2, 'Andrew Sparks', 'CTO/Founder', 'ZPXmR-team-2.jpg', 1, 1, '2024-06-11 22:32:11', '2024-06-11 22:32:11'),
+(3, 'David Downs', 'Web Designer', '4Wgz1-team-3.jpg', 1, 0, '2024-06-11 22:32:26', '2024-06-11 22:32:26');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_menu`
 --
 
@@ -673,6 +738,18 @@ CREATE TABLE `tbl_menu` (
   `icon` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `tbl_menu`
+--
+
+INSERT INTO `tbl_menu` (`id`, `name`, `linksrc`, `parentOf`, `linktype`, `status`, `sortorder`, `added_date`, `type`, `icon`) VALUES
+(1, 'Home', 'home', 0, '0', 1, 1, '2024-06-04 22:21:47', 1, ''),
+(2, 'About', 'about', 0, '0', 1, 2, '2024-06-04 22:21:58', 1, ''),
+(3, 'Service', 'service', 0, '0', 1, 3, '2024-06-04 22:22:09', 1, ''),
+(4, 'Work', 'work', 0, '0', 1, 4, '2024-06-04 22:22:21', 1, ''),
+(5, 'Blog', 'blog', 0, '0', 1, 5, '2024-06-04 22:22:29', 1, ''),
+(6, 'Contact', 'contact', 0, '0', 1, 6, '2024-06-04 22:22:39', 1, '');
+
 -- --------------------------------------------------------
 
 --
@@ -684,6 +761,16 @@ CREATE TABLE `tbl_mlink` (
   `m_url` tinytext NOT NULL,
   `act_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tbl_mlink`
+--
+
+INSERT INTO `tbl_mlink` (`mod_class`, `m_url`, `act_id`) VALUES
+('Article', 'buckzo-is-one-of-best-web-design-development-company', 1),
+('Article', 'we-provide-a-absolute-list-of-superior-digital-services', 2),
+('Article', 'see-our-works', 3),
+('Article', 'lets-keep-in-touch', 4);
 
 -- --------------------------------------------------------
 
@@ -747,7 +834,8 @@ INSERT INTO `tbl_modules` (`id`, `parent_id`, `name`, `link`, `mode`, `icon_link
 (304, 0, 'OTA Mgmt', 'ota/list', 'ota', 'icon-google-plus', 0, 12, '0000-00-00', 'a:2:{s:8:\"imgwidth\";s:2:\"14\";s:9:\"imgheight\";s:2:\"13\";}'),
 (305, 0, 'Nearby ', 'nearby/list', 'nearby', 'icon-list', 0, 8, '2023-08-29', ''),
 (306, 74, 'User Group', 'usergroup/list', 'usergroup', 'icon-gears', 1, 3, '2023-10-10', ''),
-(309, 0, 'Download Mgmt', 'download/list', 'download', 'icon-gear', 1, 7, '2024-03-28', '');
+(309, 0, 'Download Mgmt', 'download/list', 'download', 'icon-gear', 1, 7, '2024-03-28', ''),
+(310, 0, 'Member Mgmt', 'member/list', 'member', 'icon-user', 1, 11, '2024-06-11', '');
 
 -- --------------------------------------------------------
 
@@ -1060,6 +1148,18 @@ CREATE TABLE `tbl_services` (
   `meta_description` tinyint(4) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `tbl_services`
+--
+
+INSERT INTO `tbl_services` (`id`, `slug`, `title`, `sub_title`, `image`, `icon`, `linksrc`, `linktype`, `content`, `status`, `added_date`, `sortorder`, `type`, `brief`, `meta_title`, `meta_keywords`, `meta_description`) VALUES
+(1, 'branding', 'Branding', 'Ti', 'a:0:{}', 'TiLeaf', '', 0, '<p>\r\n	Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat.</p>\r\n', 1, '2024-06-10 22:42:03', 5, 0, '', 0, 0, 0),
+(2, 'highly-customizable', 'Highly customizable', 'Gi', 'a:0:{}', 'GiShipWheel', '', 0, '<p>\r\n	Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat.</p>\r\n', 1, '2024-06-10 22:42:23', 4, 0, '', 0, 0, 0),
+(3, 'responsive-design', 'Responsive design', 'Pi', 'a:0:{}', 'PiAirplay', '', 0, '<p>\r\n	Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat</p>\r\n', 1, '2024-06-10 22:42:40', 3, 0, '', 0, 0, 0),
+(4, 'user-experience', 'User Experience', 'Pi', 'a:0:{}', 'PiCoffee', '', 0, '<p>\r\n	Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat.</p>\r\n', 1, '2024-06-10 22:42:56', 2, 0, '', 0, 0, 0),
+(5, 'optimised-for-speed', 'Optimised for Speed', 'Io', 'a:0:{}', 'IoMdRocket', '', 0, '<p>\r\n	Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat.</p>\r\n', 1, '2024-06-10 22:43:12', 1, 0, '', 0, 0, 0),
+(6, 'dedicated-support', 'Dedicated support', 'Tb', 'a:0:{}', 'TbHeadset', '', 0, '<p>\r\n	Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat.</p>\r\n', 1, '2024-06-10 22:43:28', 0, 0, '', 0, 0, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -1122,6 +1222,21 @@ CREATE TABLE `tbl_social_networking` (
   `registered` varchar(50) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `tbl_social_networking`
+--
+
+INSERT INTO `tbl_social_networking` (`id`, `title`, `image`, `icon`, `type`, `linksrc`, `status`, `sortorder`, `registered`) VALUES
+(1, 'Whatsapp', '', 'icofont-whatsapp', 1, '#', 1, 5, '2024-06-10 23:18:31'),
+(2, 'Twitter', '', 'icofont-twitter', 1, '#', 1, 4, '2024-06-10 23:18:45'),
+(3, 'Skype', '', 'icofont-skype', 1, '#', 1, 3, '2024-06-10 23:19:02'),
+(4, 'Facebook', '', 'icofont-facebook', 1, '#', 1, 2, '2024-06-10 23:19:14'),
+(5, 'Dribble', '', 'icofont-dribble', 1, '#', 1, 1, '2024-06-10 23:19:26'),
+(6, 'Quadra', 'CL9R6-clients-4.png', '#', 2, '#', 1, 4, '2024-06-11 22:46:17'),
+(7, 'Toykids', 'FreyF-clients-3.png', '#', 2, '#', 1, 3, '2024-06-11 22:46:54'),
+(8, 'Black Swan', 'XdrZb-clients-2.png', '#', 2, '#', 1, 2, '2024-06-11 22:47:07'),
+(9, 'Essence', '8VDlO-clients-1.png', '#', 2, '#', 1, 1, '2024-06-11 22:47:18');
+
 -- --------------------------------------------------------
 
 --
@@ -1174,6 +1289,13 @@ CREATE TABLE `tbl_testimonial` (
   `via_type` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `type` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `tbl_testimonial`
+--
+
+INSERT INTO `tbl_testimonial` (`id`, `parentOf`, `name`, `image`, `linksrc`, `content`, `rating`, `sortorder`, `status`, `country`, `via_type`, `type`) VALUES
+(1, 0, 'Theme User', 'DgM9o-user-1.png', '', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less.', 0, 1, 1, '', 'Web Designer', 0);
 
 -- --------------------------------------------------------
 
@@ -1362,6 +1484,12 @@ ALTER TABLE `tbl_mainservices`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tbl_member`
+--
+ALTER TABLE `tbl_member`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tbl_menu`
 --
 ALTER TABLE `tbl_menu`
@@ -1513,7 +1641,7 @@ ALTER TABLE `tbl_applicants`
 -- AUTO_INCREMENT for table `tbl_articles`
 --
 ALTER TABLE `tbl_articles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_blog`
@@ -1567,13 +1695,13 @@ ALTER TABLE `tbl_features`
 -- AUTO_INCREMENT for table `tbl_galleries`
 --
 ALTER TABLE `tbl_galleries`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_gallery_images`
 --
 ALTER TABLE `tbl_gallery_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `tbl_group_type`
@@ -1600,16 +1728,22 @@ ALTER TABLE `tbl_mainservices`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `tbl_member`
+--
+ALTER TABLE `tbl_member`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `tbl_menu`
 --
 ALTER TABLE `tbl_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbl_modules`
 --
 ALTER TABLE `tbl_modules`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=310;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=311;
 
 --
 -- AUTO_INCREMENT for table `tbl_nearby`
@@ -1675,7 +1809,7 @@ ALTER TABLE `tbl_room_price`
 -- AUTO_INCREMENT for table `tbl_services`
 --
 ALTER TABLE `tbl_services`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbl_slideshow`
@@ -1693,7 +1827,7 @@ ALTER TABLE `tbl_slideshows_withouttlist`
 -- AUTO_INCREMENT for table `tbl_social_networking`
 --
 ALTER TABLE `tbl_social_networking`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tbl_subpackage_images`
@@ -1711,7 +1845,7 @@ ALTER TABLE `tbl_subscribers`
 -- AUTO_INCREMENT for table `tbl_testimonial`
 --
 ALTER TABLE `tbl_testimonial`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_users`

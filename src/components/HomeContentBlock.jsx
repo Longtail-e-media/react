@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { homeContent } from "../constants/data";
 
 const HomeContentBlock = ({ isInner }) => {
-
   // getting homepage from backend
   const [homeContent, setHomeContent] = useState([]);
   useEffect(() => {
@@ -31,7 +30,12 @@ const HomeContentBlock = ({ isInner }) => {
         {homeContent.title}
       </h1>
       <p className="text-base text-gray-400">{homeContent.subtitle}</p>
-      {isInner && <h4 className="text-black mt-8" dangerouslySetInnerHTML={{ __html: homeContent.subtext }} />}
+      {isInner && (
+        <h4
+          className="text-black mt-8"
+          dangerouslySetInnerHTML={{ __html: homeContent.subtext }}
+        />
+      )}
     </>
   );
 };

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import TestimonialBlock from "../components/TestimonialBlock";
@@ -7,6 +7,72 @@ import HomeContentBlock from "../components/HomeContentBlock";
 import { mithila, teams, testimonials } from "../constants/data";
 
 const About = () => {
+  // getting image from backend article
+  const [articleImage, setArticleImage] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost/react/backend/api/article.php?id=1&field=image")
+      .then((response) => response.text())
+      .then((data) => {
+        try {
+          const safeData = (code) => {
+            const func = new Function(code + "return fieldDetail ;");
+            return func();
+          };
+          const actualData = safeData(data);
+          setArticleImage(actualData);
+        } catch (error) {
+          console.error(error);
+        }
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }, []);
+
+  // getting testimonial from backend
+  const [testimonials, setTestimonials] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost/react/backend/api/testimonials.php")
+      .then((response) => response.text())
+      .then((data) => {
+        try {
+          const safeData = (code) => {
+            const func = new Function(code + "return testimonialDetail;");
+            return func();
+          };
+          const actualData = safeData(data);
+          setTestimonials(actualData);
+        } catch (error) {
+          console.error(error);
+        }
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  });
+
+  // getting testimonial from backend
+  const [teams, setTeams] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost/react/backend/api/members.php")
+      .then((response) => response.text())
+      .then((data) => {
+        try {
+          const safeData = (code) => {
+            const func = new Function(code + "return memberDetails;");
+            return func();
+          };
+          const actualData = safeData(data);
+          setTeams(actualData);
+        } catch (error) {
+          console.error(error);
+        }
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  });
+
   return (
     <>
       <Navbar />
@@ -16,7 +82,7 @@ const About = () => {
           <div className="lg:flex justify-center">
             <div className="lg:w-2/3 mx-2">
               <div className="text-center">
-                <HomeContentBlock isInner={true}/>
+                <HomeContentBlock isInner={true} />
               </div>
             </div>
           </div>
@@ -28,7 +94,7 @@ const About = () => {
           <div className="flex justify-center">
             <div className="w-full">
               <img
-                src={mithila}
+                src={articleImage.image}
                 alt="about-img"
                 className="border rounded p-1 bg-gray-50"
               />

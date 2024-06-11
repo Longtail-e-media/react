@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { IoIosChatboxes } from "react-icons/io";
 
 const TestimonialBlock = ({ testimonials }) => {
@@ -18,7 +18,9 @@ const TestimonialBlock = ({ testimonials }) => {
               className="h-16 w-16 mx-auto rounded-full mt-4 mb-2.5"
               alt={item.title}
             />
-            <p>{item.title} - {item.subTitle}</p>
+            <p>
+              {item.title} - {item.subTitle}
+            </p>
           </div>
         </div>
       ))}
